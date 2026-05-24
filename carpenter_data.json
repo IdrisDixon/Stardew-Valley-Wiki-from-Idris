@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Farmhouse Upgrade 1",
+        "cost": "10,000g",
+        "materials": "Wood (450)",
+        "size": "Interior",
+        "function": "Adds a kitchen and allows marriage."
+    },
+    {
+        "name": "Farmhouse Upgrade 2",
+        "cost": "50,000g",
+        "materials": "Hardwood (150)",
+        "size": "Interior",
+        "function": "Adds an empty back room and a nursery with 2 cribs for children."
+    },
+    {
+        "name": "Farmhouse Upgrade 3",
+        "cost": "100,000g",
+        "materials": "None",
+        "size": "Interior",
+        "function": "Adds a cellar downstairs for aging Wine and Cheese in casks."
+    },
+    {
+        "name": "Coop",
+        "cost": "4,000g",
+        "materials": "Wood (300), Stone (100)",
+        "size": "6x3",
+        "function": "Houses 4 coop-dwelling animals (Chickens)."
+    },
+    {
+        "name": "Big Coop",
+        "cost": "10,000g",
+        "materials": "Wood (400), Stone (150)",
+        "size": "6x3",
+        "function": "Houses 8 animals. Unlocks Ducks and Void Chickens. Adds Incubator."
+    },
+    {
+        "name": "Deluxe Coop",
+        "cost": "20,000g",
+        "materials": "Wood (500), Stone (200)",
+        "size": "6x3",
+        "function": "Houses 12 animals. Unlocks Rabbits. Adds Auto-Feed System."
+    },
+    {
+        "name": "Barn",
+        "cost": "6,000g",
+        "materials": "Wood (350), Stone (150)",
+        "size": "7x4",
+        "function": "Houses 4 barn-dwelling animals (Cows)."
+    },
+    {
+        "name": "Big Barn",
+        "cost": "12,000g",
+        "materials": "Wood (450), Stone (200)",
+        "size": "7x4",
+        "function": "Houses 8 animals. Unlocks Goats."
+    },
+    {
+        "name": "Deluxe Barn",
+        "cost": "25,000g",
+        "materials": "Wood (550), Stone (300)",
+        "size": "7x4",
+        "function": "Houses 12 animals. Unlocks Sheep and Pigs. Adds Auto-Feed System."
+    },
+    {
+        "name": "Silo",
+        "cost": "100g",
+        "materials": "Stone (100), Clay (10), Copper Bar (5)",
+        "size": "3x3",
+        "function": "Allows hay to be collected from grass and stored (Max 240 hay per silo)."
+    },
+    {
+        "name": "Stable",
+        "cost": "10,000g",
+        "materials": "Hardwood (100), Iron Bar (5)",
+        "size": "4x2",
+        "function": "Allows you to own and ride a horse, vastly speeding up travel."
+    },
+    {
+        "name": "Well",
+        "cost": "1,000g",
+        "materials": "Stone (75)",
+        "size": "3x3",
+        "function": "Provides a convenient spot to refill watering cans on the farm."
+    },
+    {
+        "name": "Fish Pond",
+        "cost": "5,000g",
+        "materials": "Stone (200), Seaweed (5), Green Algae (5)",
+        "size": "5x5",
+        "function": "Raise fish to harvest their roe and other unique periodic items."
+    },
+    {
+        "name": "Shed",
+        "cost": "15,000g",
+        "materials": "Wood (300)",
+        "size": "7x3",
+        "function": "An empty building that can be decorated or packed with production machines (Interior is 11x9)."
+    },
+    {
+        "name": "Big Shed",
+        "cost": "20,000g",
+        "materials": "Wood (550), Stone (300)",
+        "size": "7x3",
+        "function": "Upgrades an existing Shed, doubling its interior storage capacity to 17x12."
+    }
+]

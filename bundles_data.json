@@ -1,0 +1,370 @@
+[
+    {
+        "name": "Spring Foraging Bundle",
+        "room": "Crafts Room",
+        "season": "Spring",
+        "items": [
+            "Wild Horseradish",
+            "Daffodil",
+            "Leek",
+            "Dandelion"
+        ],
+        "reward": "Spring Seeds (30)"
+    },
+    {
+        "name": "Summer Foraging Bundle",
+        "room": "Crafts Room",
+        "season": "Summer",
+        "items": [
+            "Spice Berry",
+            "Grape",
+            "Sweet Pea"
+        ],
+        "reward": "Summer Seeds (30)"
+    },
+    {
+        "name": "Fall Foraging Bundle",
+        "room": "Crafts Room",
+        "season": "Fall",
+        "items": [
+            "Common Mushroom",
+            "Wild Plum",
+            "Hazelnut",
+            "Blackberry"
+        ],
+        "reward": "Fall Seeds (30)"
+    },
+    {
+        "name": "Winter Foraging Bundle",
+        "room": "Crafts Room",
+        "season": "Winter",
+        "items": [
+            "Winter Root",
+            "Crystal Fruit",
+            "Snow Yam",
+            "Crocus"
+        ],
+        "reward": "Winter Seeds (30)"
+    },
+    {
+        "name": "Construction Bundle",
+        "room": "Crafts Room",
+        "season": "All Seasons",
+        "items": [
+            "Wood (99) x2",
+            "Stone (99)",
+            "Hardwood (10)"
+        ],
+        "reward": "Charcoal Kiln"
+    },
+    {
+        "name": "Exotic Foraging Bundle",
+        "room": "Crafts Room",
+        "season": "All Seasons",
+        "items": [
+            "Coconut",
+            "Cactus Fruit",
+            "Cave Carrot",
+            "Red Mushroom",
+            "Purple Mushroom",
+            "Maple Syrup",
+            "Oak Resin",
+            "Pine Tar",
+            "Morel"
+        ],
+        "reward": "Autumn's Bounty (5)"
+    },
+    {
+        "name": "Spring Crops Bundle",
+        "room": "Pantry",
+        "season": "Spring",
+        "items": [
+            "Parsnip",
+            "Green Bean",
+            "Cauliflower",
+            "Potato"
+        ],
+        "reward": "Speed-Gro (20)"
+    },
+    {
+        "name": "Summer Crops Bundle",
+        "room": "Pantry",
+        "season": "Summer",
+        "items": [
+            "Tomato",
+            "Hot Pepper",
+            "Blueberry",
+            "Melon"
+        ],
+        "reward": "Quality Fertilizer (20)"
+    },
+    {
+        "name": "Fall Crops Bundle",
+        "room": "Pantry",
+        "season": "Fall",
+        "items": [
+            "Corn",
+            "Eggplant",
+            "Pumpkin",
+            "Yam"
+        ],
+        "reward": "Bee House"
+    },
+    {
+        "name": "Quality Crops Bundle",
+        "room": "Pantry",
+        "season": "Multi-Season",
+        "items": [
+            "Parsnip (Gold x5)",
+            "Melon (Gold x5)",
+            "Pumpkin (Gold x5)",
+            "Corn (Gold x5)"
+        ],
+        "reward": "Preserves Jar"
+    },
+    {
+        "name": "Animal Bundle",
+        "room": "Pantry",
+        "season": "All Seasons",
+        "items": [
+            "Large Milk",
+            "Large Egg (Brown)",
+            "Large Egg (White)",
+            "Large Goat Milk",
+            "Wool",
+            "Duck Egg"
+        ],
+        "reward": "Cheese Press"
+    },
+    {
+        "name": "Artisan Bundle",
+        "room": "Pantry",
+        "season": "All Seasons",
+        "items": [
+            "Truffle Oil",
+            "Cloth",
+            "Goat Cheese",
+            "Cheese",
+            "Honey",
+            "Jelly",
+            "Apple",
+            "Apricot",
+            "Orange",
+            "Peach",
+            "Pomegranate",
+            "Cherry"
+        ],
+        "reward": "Keg"
+    },
+    {
+        "name": "River Fish Bundle",
+        "room": "Fish Tank",
+        "season": "All Seasons",
+        "items": [
+            "Sunfish",
+            "Catfish",
+            "Shad",
+            "Tiger Trout"
+        ],
+        "reward": "Bait (30)"
+    },
+    {
+        "name": "Lake Fish Bundle",
+        "room": "Fish Tank",
+        "season": "All Seasons",
+        "items": [
+            "Largemouth Bass",
+            "Carp",
+            "Bullhead",
+            "Sturgeon"
+        ],
+        "reward": "Dressed Spinner"
+    },
+    {
+        "name": "Ocean Fish Bundle",
+        "room": "Fish Tank",
+        "season": "All Seasons",
+        "items": [
+            "Sardine",
+            "Tuna",
+            "Red Snapper",
+            "Tilapia"
+        ],
+        "reward": "Warp Totem: Beach (5)"
+    },
+    {
+        "name": "Night Fishing Bundle",
+        "room": "Fish Tank",
+        "season": "All Seasons",
+        "items": [
+            "Walleye",
+            "Bream",
+            "Eel"
+        ],
+        "reward": "Small Glow Ring"
+    },
+    {
+        "name": "Crab Pot Bundle",
+        "room": "Fish Tank",
+        "season": "All Seasons",
+        "items": [
+            "Lobster",
+            "Crayfish",
+            "Crab",
+            "Cockle",
+            "Mussel",
+            "Shrimp",
+            "Snail",
+            "Periwinkle",
+            "Oyster",
+            "Clam"
+        ],
+        "reward": "Crab Pot (3)"
+    },
+    {
+        "name": "Specialty Fish Bundle",
+        "room": "Fish Tank",
+        "season": "All Seasons",
+        "items": [
+            "Pufferfish",
+            "Ghostfish",
+            "Sandfish",
+            "Woodskip"
+        ],
+        "reward": "Dish O' The Sea (5)"
+    },
+    {
+        "name": "Blacksmith's Bundle",
+        "room": "Boiler Room",
+        "season": "All Seasons",
+        "items": [
+            "Copper Bar",
+            "Iron Bar",
+            "Gold Bar"
+        ],
+        "reward": "Furnace"
+    },
+    {
+        "name": "Geologist's Bundle",
+        "room": "Boiler Room",
+        "season": "All Seasons",
+        "items": [
+            "Quartz",
+            "Earth Crystal",
+            "Frozen Tear",
+            "Fire Quartz"
+        ],
+        "reward": "Omni Geode (5)"
+    },
+    {
+        "name": "Adventurer's Bundle",
+        "room": "Boiler Room",
+        "season": "All Seasons",
+        "items": [
+            "Slime (99)",
+            "Bat Wing (10)",
+            "Solar Essence",
+            "Void Essence"
+        ],
+        "reward": "Small Magnet Ring"
+    },
+    {
+        "name": "2,500 Bundle",
+        "room": "Vault",
+        "season": "All Seasons",
+        "items": [
+            "Gold (2,500g)"
+        ],
+        "reward": "Chocolate Cake (3)"
+    },
+    {
+        "name": "5,000 Bundle",
+        "room": "Vault",
+        "season": "All Seasons",
+        "items": [
+            "Gold (5,000g)"
+        ],
+        "reward": "Quality Fertilizer (30)"
+    },
+    {
+        "name": "10,000 Bundle",
+        "room": "Vault",
+        "season": "All Seasons",
+        "items": [
+            "Gold (10,000g)"
+        ],
+        "reward": "Lightning Rod"
+    },
+    {
+        "name": "25,000 Bundle",
+        "room": "Vault",
+        "season": "All Seasons",
+        "items": [
+            "Gold (25,000g)"
+        ],
+        "reward": "Crystalarium"
+    },
+    {
+        "name": "Chef's Bundle",
+        "room": "Bulletin Board",
+        "season": "All Seasons",
+        "items": [
+            "Maple Syrup",
+            "Fiddlehead Fern",
+            "Truffle",
+            "Poppy",
+            "Maki Roll",
+            "Fried Egg"
+        ],
+        "reward": "Pink Cake (3)"
+    },
+    {
+        "name": "Dye Bundle",
+        "room": "Bulletin Board",
+        "season": "All Seasons",
+        "items": [
+            "Red Mushroom",
+            "Sea Urchin",
+            "Sunflower",
+            "Duck Feather",
+            "Aquamarine",
+            "Red Cabbage"
+        ],
+        "reward": "Seed Maker"
+    },
+    {
+        "name": "Field Research Bundle",
+        "room": "Bulletin Board",
+        "season": "All Seasons",
+        "items": [
+            "Purple Mushroom",
+            "Nautilus Shell",
+            "Chub",
+            "Frozen Geode"
+        ],
+        "reward": "Recycling Machine"
+    },
+    {
+        "name": "Fodder Bundle",
+        "room": "Bulletin Board",
+        "season": "All Seasons",
+        "items": [
+            "Wheat (10)",
+            "Hay (10)",
+            "Apple (3)"
+        ],
+        "reward": "Heater"
+    },
+    {
+        "name": "Enchanter's Bundle",
+        "room": "Bulletin Board",
+        "season": "All Seasons",
+        "items": [
+            "Oak Resin",
+            "Wine",
+            "Rabbit's Foot",
+            "Pomegranate"
+        ],
+        "reward": "Gold Bar (5)"
+    }
+]

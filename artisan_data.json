@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Keg",
+        "unlock": "Farming Level 8",
+        "ingredients": "Wood (30), Copper Bar (1), Iron Bar (1), Oak Resin (1)",
+        "use": "Turns fruit into Wine, vegetables into Juice, wheat into Beer, and hops into Pale Ale."
+    },
+    {
+        "name": "Preserves Jar",
+        "unlock": "Farming Level 4",
+        "ingredients": "Wood (50), Stone (40), Coal (8)",
+        "use": "Turns fruit into Jelly, and vegetables into Pickles."
+    },
+    {
+        "name": "Cheese Press",
+        "unlock": "Farming Level 6",
+        "ingredients": "Wood (45), Stone (45), Hardwood (10), Copper Bar (1)",
+        "use": "Turns Milk into Cheese, and Goat Milk into Goat Cheese."
+    },
+    {
+        "name": "Mayonnaise Machine",
+        "unlock": "Farming Level 2",
+        "ingredients": "Wood (15), Stone (15), Earth Crystal (1), Copper Bar (1)",
+        "use": "Turns Eggs (White, Brown, Duck, Void, Dinosaur) into premium Mayonnaise."
+    },
+    {
+        "name": "Oil Maker",
+        "unlock": "Farming Level 8",
+        "ingredients": "Slime (50), Hardwood (20), Gold Bar (1)",
+        "use": "Turns Truffles into Truffle Oil, and Corn/Sunflower into Oil."
+    },
+    {
+        "name": "Loom",
+        "unlock": "Farming Level 7",
+        "ingredients": "Wood (60), Fiber (30), Pine Tar (1)",
+        "use": "Turns Wool into high-value Cloth."
+    },
+    {
+        "name": "Bee House",
+        "unlock": "Farming Level 3",
+        "ingredients": "Wood (40), Stone (8), Iron Bar (1), Maple Syrup (1)",
+        "use": "Produces Wild Honey regularly. Produces Flower Honey if placed near fully-grown flowers."
+    },
+    {
+        "name": "Dehydrator",
+        "unlock": "Purchased from Pierre's (10,000g)",
+        "ingredients": "Wood (30), Clay (2), Fire Quartz (1)",
+        "use": "Turns 5x Fruits into Dried Fruit, or 5x Mushrooms into Dried Mushrooms."
+    }
+]

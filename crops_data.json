@@ -1,0 +1,314 @@
+[
+    {
+        "name": "Parsnip (防风草)",
+        "season": "Spring",
+        "seed_cost": "20g",
+        "sell_price": "35g",
+        "growth_days": "4 days",
+        "daily_profit": "3.75g"
+    },
+    {
+        "name": "Strawberry (草莓)",
+        "season": "Spring",
+        "seed_cost": "100g",
+        "sell_price": "120g",
+        "growth_days": "8 days (Regrows)",
+        "daily_profit": "20.83g"
+    },
+    {
+        "name": "Cauliflower (花椰菜)",
+        "season": "Spring",
+        "seed_cost": "80g",
+        "sell_price": "175g",
+        "growth_days": "12 days",
+        "daily_profit": "7.92g"
+    },
+    {
+        "name": "Potato (土豆)",
+        "season": "Spring",
+        "seed_cost": "50g",
+        "sell_price": "80g",
+        "growth_days": "6 days",
+        "daily_profit": "5.00g"
+    },
+    {
+        "name": "Kale (甘蓝)",
+        "season": "Spring",
+        "seed_cost": "70g",
+        "sell_price": "110g",
+        "growth_days": "6 days",
+        "daily_profit": "6.67g"
+    },
+    {
+        "name": "Rhubarb (大黄)",
+        "season": "Spring",
+        "seed_cost": "100g",
+        "sell_price": "220g",
+        "growth_days": "13 days",
+        "daily_profit": "9.23g"
+    },
+    {
+        "name": "Garlic (大蒜)",
+        "season": "Spring",
+        "seed_cost": "40g",
+        "sell_price": "60g",
+        "growth_days": "4 days",
+        "daily_profit": "5.00g"
+    },
+    {
+        "name": "Green Bean (青豆)",
+        "season": "Spring",
+        "seed_cost": "60g",
+        "sell_price": "40g",
+        "growth_days": "10 days (Regrows)",
+        "daily_profit": "6.43g"
+    },
+    {
+        "name": "Blue Jazz (蓝爵士)",
+        "season": "Spring",
+        "seed_cost": "30g",
+        "sell_price": "50g",
+        "growth_days": "7 days",
+        "daily_profit": "2.86g"
+    },
+    {
+        "name": "Tulip (郁金香)",
+        "season": "Spring",
+        "seed_cost": "20g",
+        "sell_price": "30g",
+        "growth_days": "6 days",
+        "daily_profit": "1.67g"
+    },
+    {
+        "name": "Rice (未碾磨的大米)",
+        "season": "Spring",
+        "seed_cost": "40g",
+        "sell_price": "30g",
+        "growth_days": "8 days (Irrigated)",
+        "daily_profit": "1.25g"
+    },
+    {
+        "name": "Carrot (胡萝卜)",
+        "season": "Spring",
+        "seed_cost": "0g (Seed)",
+        "sell_price": "35g",
+        "growth_days": "3 days",
+        "daily_profit": "11.67g"
+    },
+    {
+        "name": "Blueberry (蓝莓)",
+        "season": "Summer",
+        "seed_cost": "80g",
+        "sell_price": "50g x3",
+        "growth_days": "13 days (Regrows)",
+        "daily_profit": "20.80g"
+    },
+    {
+        "name": "Starfruit (杨桃)",
+        "season": "Summer",
+        "seed_cost": "400g",
+        "sell_price": "750g",
+        "growth_days": "13 days",
+        "daily_profit": "26.92g"
+    },
+    {
+        "name": "Melon (甜瓜)",
+        "season": "Summer",
+        "seed_cost": "80g",
+        "sell_price": "250g",
+        "growth_days": "12 days",
+        "daily_profit": "14.17g"
+    },
+    {
+        "name": "Hops (啤酒花)",
+        "season": "Summer",
+        "seed_cost": "60g",
+        "sell_price": "25g",
+        "growth_days": "11 days (Regrows)",
+        "daily_profit": "13.64g"
+    },
+    {
+        "name": "Hot Pepper (辣椒)",
+        "season": "Summer",
+        "seed_cost": "40g",
+        "sell_price": "40g",
+        "growth_days": "5 days (Regrows)",
+        "daily_profit": "10.77g"
+    },
+    {
+        "name": "Carambola / Starfruit",
+        "season": "Summer",
+        "seed_cost": "400g",
+        "sell_price": "750g",
+        "growth_days": "13 days",
+        "daily_profit": "26.92g"
+    },
+    {
+        "name": "Red Cabbage (红卷心菜)",
+        "season": "Summer",
+        "seed_cost": "100g",
+        "sell_price": "260g",
+        "growth_days": "9 days",
+        "daily_profit": "17.78g"
+    },
+    {
+        "name": "Radish (萝卜)",
+        "season": "Summer",
+        "seed_cost": "40g",
+        "sell_price": "90g",
+        "growth_days": "6 days",
+        "daily_profit": "8.33g"
+    },
+    {
+        "name": "Tomato (西红柿)",
+        "season": "Summer",
+        "seed_cost": "50g",
+        "sell_price": "60g",
+        "growth_days": "11 days (Regrows)",
+        "daily_profit": "9.23g"
+    },
+    {
+        "name": "Summer Spangle (夏日亮片)",
+        "season": "Summer",
+        "seed_cost": "50g",
+        "sell_price": "90g",
+        "growth_days": "8 days",
+        "daily_profit": "5.00g"
+    },
+    {
+        "name": "Poppy (罂粟)",
+        "season": "Summer",
+        "seed_cost": "100g",
+        "sell_price": "140g",
+        "growth_days": "7 days",
+        "daily_profit": "5.71g"
+    },
+    {
+        "name": "Summer Squash (夏南瓜)",
+        "season": "Summer",
+        "seed_cost": "0g (Seed)",
+        "sell_price": "45g",
+        "growth_days": "6 days (Regrows)",
+        "daily_profit": "15.00g"
+    },
+    {
+        "name": "Sweet Gem Berry (稀有种子)",
+        "season": "Fall",
+        "seed_cost": "1000g",
+        "sell_price": "3000g",
+        "growth_days": "24 days",
+        "daily_profit": "83.33g"
+    },
+    {
+        "name": "Cranberries (蔓越莓)",
+        "season": "Fall",
+        "seed_cost": "240g",
+        "sell_price": "75g x2",
+        "growth_days": "7 days (Regrows)",
+        "daily_profit": "18.89g"
+    },
+    {
+        "name": "Pumpkin (南瓜)",
+        "season": "Fall",
+        "seed_cost": "100g",
+        "sell_price": "320g",
+        "growth_days": "13 days",
+        "daily_profit": "16.92g"
+    },
+    {
+        "name": "Grape (葡萄)",
+        "season": "Fall",
+        "seed_cost": "60g",
+        "sell_price": "80g",
+        "growth_days": "10 days (Regrows)",
+        "daily_profit": "11.25g"
+    },
+    {
+        "name": "Eggplant (茄子)",
+        "season": "Fall",
+        "seed_cost": "20g",
+        "sell_price": "60g",
+        "growth_days": "5 days (Regrows)",
+        "daily_profit": "7.27g"
+    },
+    {
+        "name": "Artichoke (朝鲜蓟)",
+        "season": "Fall",
+        "seed_cost": "30g",
+        "sell_price": "160g",
+        "growth_days": "8 days",
+        "daily_profit": "16.25g"
+    },
+    {
+        "name": "Yam (山药)",
+        "season": "Fall",
+        "seed_cost": "60g",
+        "sell_price": "160g",
+        "growth_days": "10 days",
+        "daily_profit": "10.00g"
+    },
+    {
+        "name": "Fairy Rose (仙女玫瑰)",
+        "season": "Fall",
+        "seed_cost": "200g",
+        "sell_price": "290g",
+        "growth_days": "12 days",
+        "daily_profit": "7.50g"
+    },
+    {
+        "name": "Amaranth (苋菜)",
+        "season": "Fall",
+        "seed_cost": "70g",
+        "sell_price": "150g",
+        "growth_days": "7 days",
+        "daily_profit": "11.43g"
+    },
+    {
+        "name": "Broccoli (西兰花)",
+        "season": "Fall",
+        "seed_cost": "0g (Seed)",
+        "sell_price": "70g",
+        "growth_days": "8 days (Regrows)",
+        "daily_profit": "23.33g"
+    },
+    {
+        "name": "Ancient Fruit (远古水果)",
+        "season": "Multi-Season",
+        "seed_cost": "0g",
+        "sell_price": "550g",
+        "growth_days": "28 days (Regrows)",
+        "daily_profit": "57.29g"
+    },
+    {
+        "name": "Coffee Bean (咖啡豆)",
+        "season": "Multi-Season",
+        "seed_cost": "2500g",
+        "sell_price": "15g x4",
+        "growth_days": "10 days (Regrows)",
+        "daily_profit": "2.14g"
+    },
+    {
+        "name": "Pineapple (菠萝)",
+        "season": "Multi-Season",
+        "seed_cost": "0g (Island)",
+        "sell_price": "300g",
+        "growth_days": "14 days (Regrows)",
+        "daily_profit": "42.86g"
+    },
+    {
+        "name": "Taro Root (芋头)",
+        "season": "Multi-Season",
+        "seed_cost": "0g (Island)",
+        "sell_price": "130g",
+        "growth_days": "10 days (Irrigated)",
+        "daily_profit": "13.00g"
+    },
+    {
+        "name": "Powdermelon (粉瓜)",
+        "season": "Winter",
+        "seed_cost": "0g (Seed)",
+        "sell_price": "60g",
+        "growth_days": "7 days",
+        "daily_profit": "8.57g"
+    }
+]
