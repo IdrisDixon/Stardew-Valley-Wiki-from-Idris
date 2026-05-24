@@ -1,0 +1,279 @@
+/* ================= 🌌 全局重置与基础底调 ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #1f1f1f;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 页面总容器 */
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ================= 🏢 左侧边栏高级样式 (Sidebar) ================= */
+.sidebar {
+    width: 260px;
+    background-color: #1e1e1f; 
+    color: #e3e3e3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    flex-shrink: 0; 
+    border-right: 1px solid #2e2e2f;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2e2e2f;
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.version-tag {
+    font-size: 0.75rem;
+    background-color: #333335;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #9aa0a6;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.nav-item {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #c4c7c5;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: #2b2a2b;
+    color: #fff;
+}
+
+.nav-item.active {
+    background-color: #004a77;
+    color: #c2e7ff;
+    font-weight: 500;
+}
+
+.sidebar-footer {
+    font-size: 0.75rem;
+    color: #747775;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* ================= 📄 右侧主视窗：轻量静态底色 ================= */
+.main-content {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 24px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f5f3ff 100%);
+    background-attachment: fixed;
+}
+
+/* 模块面板显隐控制 */
+.tab-panel {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tab-panel.active {
+    display: flex;
+}
+
+/* ================= 🎛️ 二级胶囊筛选器容器 ================= */
+.filter-container {
+    background-color: #f0f4f9;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444746;
+    min-width: 70px;
+}
+
+.filter-btn {
+    background-color: #ffffff;
+    border: 1px solid #747775;
+    color: #444746;
+    padding: 6px 16px;
+    border-radius: 100px; 
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #eaeef6;
+}
+
+.filter-btn.active {
+    background-color: #c2e7ff;
+    border-color: #004a77;
+    color: #001d35;
+    font-weight: 500;
+}
+
+/* ================= 🃏 完美归位：扁平工整单行列表（完全对齐图4） ================= */
+.bundle-grid, #crops-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* 强制让普通卡片和Crops卡片都变成图4那种精致的单行扁平条 */
+.card, .crop-card {
+    background: #ffffff !important; 
+    border: 1px solid #e2e8f0 !important; 
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    flex-direction: row !important; /* 强制单行横向对齐 */
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;       
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+.card:hover, .crop-card:hover {
+    transform: translateX(4px) !important;
+    background-color: #f8fafc !important;
+}
+
+/* 统一最左侧名称标题宽度 */
+.card h2, .crop-header h2 {
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    width: 150px !important; 
+    flex-shrink: 0 !important;
+    color: #1e293b !important;
+}
+
+/* 统一紧随其后的属性小标签 */
+.meta-info, .crop-meta {
+    display: flex !important;
+    gap: 6px !important;
+    margin-bottom: 0 !important;
+    width: 120px !important; 
+    flex-shrink: 0 !important;
+    flex-wrap: wrap !important; 
+}
+
+.badge, .crop-badge {
+    font-size: 0.75rem !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+/* 统一中间的核心文本区域（强制变成图4那样的横向单行流） */
+.card-details, .crop-stats {
+    display: flex !important;
+    flex-direction: row !important; 
+    gap: 20px !important;
+    font-size: 0.9rem !important;
+    color: #334155 !important;
+    flex-grow: 1 !important; 
+    padding: 0 16px !important;
+    flex-wrap: wrap !important; 
+    background: none !important; /* 移除任何卡片背景底框 */
+}
+
+/* 修复Crops数据行的内部布局 */
+.crop-stats .stat-row {
+    display: flex !important;
+    gap: 4px !important;
+}
+
+/* 统一最右侧的淡色独立高亮区域（比如利润或奖励） */
+.reward, .crop-profit {
+    margin-top: 0 !important;
+    padding: 6px 12px !important;
+    background-color: #f8fafc !important;
+    border-left: 3px solid #0284c7 !important;
+    border-radius: 4px !important;
+    font-size: 0.85rem !important;
+    width: 200px !important; 
+    text-align: right !important;
+    flex-shrink: 0 !important; 
+    border-top: none !important; /* 移除虚线 */
+    color: #1f1f1f !important;
+}
+
+/* ================= 📱 移动端自适应 ================= */
+@media (max-width: 768px) {
+    .card, .crop-card {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+    .card h2, .crop-header h2 { width: 100% !important; }
+    .meta-info, .crop-meta { width: 100% !important; }
+    .card-details, .crop-stats { padding: 0 !important; flex-direction: column !important; gap: 4px !important; }
+    .reward, .crop-profit { width: 100% !important; text-align: left !important; }
+
+    .app-container { flex-direction: column; height: 100vh; width: 100vw; }
+    .sidebar { width: 100%; height: auto; padding: 12px 16px 8px 16px; border-right: none; border-bottom: 1px solid #2e2e2f; gap: 8px; }
+    .sidebar-header { padding-bottom: 8px; border-bottom: none; }
+    .sidebar-header h2 { font-size: 1.1rem; }
+    .sidebar-nav { flex-direction: row; margin-top: 0; gap: 6px; overflow-x: auto; padding-bottom: 6px; }
+    .sidebar-nav::-webkit-scrollbar { display: none; }
+    .nav-item { white-space: nowrap; padding: 6px 12px; font-size: 0.85rem; width: auto; text-align: center; }
+    .sidebar-footer { display: none; }
+    .main-content { padding: 12px; height: calc(100vh - 100px); overflow-y: auto; }
+    .filter-container { padding: 10px; gap: 8px; }
+    .filter-btn { padding: 4px 12px; font-size: 0.8rem; }
+}

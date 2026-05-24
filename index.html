@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardew Valley Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Stardew Valley Guide</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" onclick="switchMainTab('bundles-panel', this)">1. Bundles</button>
+                <button class="nav-item" onclick="switchMainTab('fishing-panel', this)">2. Fishing</button>
+                <button class="nav-item" onclick="switchMainTab('crops-panel', this)">3. Crops</button>
+                <button class="nav-item" onclick="switchMainTab('artisan-panel', this)">4. Production</button>
+                <button class="nav-item" onclick="switchMainTab('marnie-panel', this)">5. Marnie's Ranch</button>
+                <button class="nav-item" onclick="switchMainTab('robin-panel', this)">6. Robin's Shop</button>
+            </nav>
+            <div class="sidebar-footer">
+                <p>From Idris Dixon</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <div id="bundles-panel" class="tab-panel active">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <span class="filter-label">Season:</span>
+                        <button class="filter-btn active" onclick="filterSeason('All')">All</button>
+                        <button class="filter-btn" onclick="filterSeason('Spring')">Spring</button>
+                        <button class="filter-btn" onclick="filterSeason('Summer')">Summer</button>
+                        <button class="filter-btn" onclick="filterSeason('Fall')">Fall</button>
+                        <button class="filter-btn" onclick="filterSeason('Winter')">Winter</button>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">Room:</span>
+                        <button class="filter-btn active" onclick="filterRoom('All')">All Rooms</button>
+                        <button class="filter-btn" onclick="filterRoom('Pantry')">Pantry</button>
+                        <button class="filter-btn" onclick="filterRoom('Fish Tank')">Fish Tank</button>
+                        <button class="filter-btn" onclick="filterRoom('Crafts Room')">Crafts</button>
+                    </div>
+                </div>
+                <div class="bundle-grid" id="bundle-container"></div>
+            </div>
+
+            <div id="fishing-panel" class="tab-panel">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <span class="filter-label">Season:</span>
+                        <button class="filter-btn active" onclick="filterFish('season', 'All', this)">All</button>
+                        <button class="filter-btn" onclick="filterFish('season', 'Spring', this)">Spring</button>
+                        <button class="filter-btn" onclick="filterFish('season', 'Summer', this)">Summer</button>
+                        <button class="filter-btn" onclick="filterFish('season', 'Fall', this)">Fall</button>
+                        <button class="filter-btn" onclick="filterFish('season', 'Winter', this)">Winter</button>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">Location:</span>
+                        <button class="filter-btn active" onclick="filterFish('location', 'All', this)">All Locations</button>
+                        <button class="filter-btn" onclick="filterFish('location', 'River', this)">River</button>
+                        <button class="filter-btn" onclick="filterFish('location', 'Ocean', this)">Ocean</button>
+                        <button class="filter-btn" onclick="filterFish('location', 'Mountain', this)">Mountain</button>
+                    </div>
+                </div>
+                <div class="bundle-grid" id="fishing-container"></div>
+            </div>
+
+            <div id="crops-panel" class="tab-panel">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <span class="filter-label">Season:</span>
+                        <button class="filter-btn active" onclick="filterCrop('All', this)">All Seasons</button>
+                        <button class="filter-btn" onclick="filterCrop('Spring', this)">Spring</button>
+                        <button class="filter-btn" onclick="filterCrop('Summer', this)">Summer</button>
+                        <button class="filter-btn" onclick="filterCrop('Fall', this)">Fall</button>
+                    </div>
+                </div>
+                <div class="bundle-grid" id="crops-container"></div>
+            </div>
+
+            <div id="artisan-panel" class="tab-panel">
+                <div class="bundle-grid" id="artisan-container"></div>
+            </div>
+
+            <div id="marnie-panel" class="tab-panel">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <span class="filter-label">Category:</span>
+                        <button class="filter-btn active" onclick="filterRanch('All', this)">All Items</button>
+                        <button class="filter-btn" onclick="filterRanch('Livestock', this)">Livestock</button>
+                        <button class="filter-btn" onclick="filterRanch('Shop', this)">Tools & Goods</button>
+                    </div>
+                </div>
+                <div class="bundle-grid" id="ranch-container"></div>
+            </div>
+
+            <div id="robin-panel" class="tab-panel">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <span class="filter-label">Infrastructure:</span>
+                        <button class="filter-btn active" onclick="filterRobin('All', this)">All</button>
+                        <button class="filter-btn" onclick="filterRobin('Housing', this)">Housing</button>
+                        <button class="filter-btn" onclick="filterRobin('Animal', this)">Animal</button>
+                        <button class="filter-btn" onclick="filterRobin('Utility', this)">Utility</button>
+                    </div>
+                </div>
+                <div class="bundle-grid" id="robin-container"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
