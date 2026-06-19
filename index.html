@@ -2,31 +2,45 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUAAN 游戏百科全书</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HUAAN GAME LIBRARY</title>
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="lobby-container">
-        <h1 class="lobby-title">选择你要查阅的游戏百科</h1>
+    
+    <div class="lobby-wrapper">
+        <header class="main-header">
+            <h1 class="library-title">HUAAN 游戏百科全书</h1>
+            <p class="library-subtitle">纯净 · 极速 · 玩家专属</p>
+        </header>
         
-        <div class="game-cards">
+        <div class="game-showcase">
             <a href="stardew/index.html" class="game-card stardew-card">
-                <div class="card-bg"></div>
-                <div class="game-info">
-                    <h2>Stardew Valley</h2>
-                    <p>社区中心献祭与全物品指南</p>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="platform-tag">NS / PC</div>
+                    <h2 class="game-title">Stardew Valley</h2>
+                    <p class="game-desc">社区中心全献祭物品指南 & 奖励数据</p>
+                    <span class="view-btn">立即进入</span>
                 </div>
             </a>
 
             <a href="zelda/index.html" class="game-card zelda-card">
-                <div class="card-bg"></div>
-                <div class="game-info">
-                    <h2>Zelda: Tears of the Kingdom</h2>
-                    <p>Amiibo 掉落物与全图鉴百科</p>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="platform-tag">NS</div>
+                    <h2 class="game-title">Zelda: TotK</h2>
+                    <p class="game-desc">塞尔达传说：王国之泪 - Amiibo全掉落图鉴</p>
+                    <span class="view-btn">敬请期待</span>
                 </div>
             </a>
         </div>
+        
+        <footer class="lobby-footer">
+            <p>From Idris Dixon / HUAAN</p>
+        </footer>
     </div>
+
 </body>
 </html>
