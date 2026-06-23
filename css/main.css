@@ -197,3 +197,47 @@ body {
 /* 强行让蒙层和文字浮在图片上面 */
 .card-overlay { z-index: 2; }
 .card-content { z-index: 3; }
+
+/* ==================== 📬 新增：底部联系方式样式（带标题版） ==================== */
+.contact-section {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 标题样式：采用跟你大厅卡片里的标签类似的浅灰质感 */
+.contact-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    color: #6d6d6d5d;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #8e8e93;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.01);
+    transition: all 0.25s ease-in-out;
+}
+
+.contact-item:hover {
+    color: #ffffff;
+    background: rgba(63, 255, 207, 0.05); /* 悬停时淡淡的霓虹绿微光 */
+    border-color: rgba(63, 255, 207, 0.3);
+    box-shadow: 0 0 10px rgba(63, 255, 207, 0.1);
+}
