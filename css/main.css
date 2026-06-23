@@ -45,6 +45,7 @@ body {
     margin: 0;
     background: linear-gradient(135deg, #fff 0%, #aaa 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 4px 10px rgba(255,255,255,0.1);
 }
@@ -170,3 +171,29 @@ body {
     margin-top: 6vh;
     letter-spacing: 2px;
 }
+
+/* ==========================================================================
+   🚀 终极 HTML 直连图样式增强
+   ========================================================================== */
+.card-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1;      /* 提升层级，防止被卡片默认背景色吃掉 */
+    opacity: 0.75;   /* 留有一点暗色基调衬托白字 */
+}
+
+/* 悬浮时放大并完全变亮 */
+.game-card:hover .card-bg-img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* 强行让蒙层和文字浮在图片上面 */
+.card-overlay { z-index: 2; }
+.card-content { z-index: 3; }

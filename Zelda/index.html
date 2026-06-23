@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelda: BotW - Amiibo 独立全掉落交互图鉴</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0c0d10;
+            --text-color: #f0f2f5;
+            --zelda-neon: #3fffcf;
+            --rare-color: #ffaa00;
+            --table-border: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --focus-bg: rgba(63, 255, 207, 0.08);
+        }
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #141f1d 0%, #0c0d10 70%);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #3fffcf 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 选项卡 (Tabs) 样式排版 */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--table-border);
+            color: #aaa;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .tab-btn:hover {
+            border-color: rgba(63, 255, 207, 0.4);
+            color: #fff;
+        }
+        .tab-btn.active {
+            background: rgba(63, 255, 207, 0.15);
+            border-color: var(--zelda-neon);
+            color: var(--zelda-neon);
+            box-shadow: 0 0 15px rgba(63, 255, 207, 0.2);
+        }
+
+        /* 动态图鉴卡片列表包裹层 */
+        #amiibo-list {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .amiibo-section {
+            background: var(--card-bg);
+            border: 1px solid var(--table-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        .amiibo-section:hover {
+            border-color: rgba(63, 255, 207, 0.2);
+        }
+        
+        .amiibo-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            color: #fff;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+        }
+        
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+            min-width: 900px;
+        }
+        th, td {
+            border: 1px solid var(--table-border);
+            padding: 12px 16px;
+            vertical-align: top;
+            line-height: 1.6;
+            transition: all 0.2s ease;
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.04);
+            font-weight: 500;
+            color: #fff;
+            text-align: center;
+        }
+        .th-sub {
+            background-color: rgba(63, 255, 207, 0.03);
+            color: var(--zelda-neon);
+            font-size: 0.85rem;
+        }
+        .rarity-tag {
+            text-align: center;
+            font-weight: 500;
+            width: 70px;
+        }
+        .rare-text {
+            color: var(--rare-color);
+        }
+        .limited-box {
+            color: var(--rare-color);
+            font-weight: 500;
+        }
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        /* 状态联动控制：弱化非核心列，高亮目标列 */
+        body[data-view="stage1"] .col-stage2, body[data-view="stage1"] .col-stage3 { opacity: 0.3; }
+        body[data-view="stage1"] .col-stage1 { background-color: var(--focus-bg); }
+
+        body[data-view="stage2"] .col-stage1, body[data-view="stage2"] .col-stage3 { opacity: 0.3; }
+        body[data-view="stage2"] .col-stage2 { background-color: var(--focus-bg); }
+
+        body[data-view="stage3"] .col-stage1, body[data-view="stage3"] .col-stage2 { opacity: 0.3; }
+        body[data-view="stage3"] .col-stage3 { background-color: var(--focus-bg); }
+    </style>
+</head>
+<body data-view="default">
+
+<div class="container">
+    <h1>BREATH OF THE WILD - AMIIBO DATA</h1>
+
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="switchView('default')">1 默认排序</button>
+        <button class="tab-btn" onclick="switchView('stage1')">2 第一座神庙通关后</button>
+        <button class="tab-btn" onclick="switchView('stage2')">3 获得滑翔伞后</button>
+        <button class="tab-btn" onclick="switchView('stage3')">4 任一神兽通关后</button>
+        <button class="tab-btn" onclick="switchView('value')">5 按价值排序</button>
+    </div>
+
+    <div id="amiibo-list">
+
+        <div class="amiibo-section" data-default-id="1" data-value="19">
+            <div class="amiibo-title">🐎 林克 (骑马) / Link (Rider)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>海拉鲁蘑菇 (35%)<br>精力蘑菇 (5%)<br>冰冷蘑菇 (10%)<br>暖暖蘑菇 (10%)<br>酥麻蘑菇 (10%)<br>速速蘑菇 (10%)<br>大剑蘑菇 (5%)<br>铠甲蘑菇 (5%)<br>潜行蘑菇 (10%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;">6~8个</td>
+                            <td class="col-stage1">火箭x5 (10%)<br>冰箭x5 (10%)<br>电箭x5 (10%)<br>炸弹箭x5 (10%)<br>旅人之剑 (30%)<br>士兵之剑 (30%)</td>
+                            <td class="col-stage2">火箭x5 (20%)<br>冰箭x5 (20%)<br>电箭x5 (20%)<br>炸弹箭x5 (15%)<br>士兵之剑 (25%)</td>
+                            <td class="col-stage3">火/冰/电箭x5 (各20%)<br>炸弹箭x5 (15%)<br>士兵之剑 (25%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">旅人马鞭<br>旅人马鞍</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>毅力蘑菇 (35%)<br>生命松露 (20%)<br>大生命松露 (5%)<br>箭矢x5 (40%)</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">骑士之剑 (30%)<br>旅人缰绳 (35%)<br>旅人马鞍 (35%)</td>
+                            <td class="col-stage3">骑士之剑 (30%)<br>王族之剑 (20%)<br>月光匕首 (10%)<br>旅人缰绳 (20%)<br>旅人马鞍 (20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="2" data-value="18">
+            <div class="amiibo-title">🏹 林克 (弓箭) / Link (Archer)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>海拉鲁鲈鱼 (12%)<br>精力鲈鱼 (10%)<br>冰冷鳕鱼 (5%)<br>暖暖鳟鱼 (5%)<br>酥麻鳟鱼 (5%)<br>潜行鳟鱼 (5%)<br>大剑鲤鱼 (8%)<br>铠甲鲤鱼 (8%)<br>大剑鲷鱼 (6%)<br>铠甲鲷鱼 (6%)<br>兽肉 (12%)<br>高级兽肉 (3%)<br>禽肉 (12%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">火箭x5 (10%)<br>冰箭x5 (10%)<br>电箭x5 (10%)<br>炸弹箭x5 (10%)<br>旅人之弓 (30%)<br>士兵之弓 (30%)</td>
+                            <td class="col-stage2">火箭x5 (20%)<br>冰箭x5 (20%)<br>电箭x5 (20%)<br>炸弹箭x5 (15%)<br>士兵之弓 (25%)</td>
+                            <td class="col-stage3">火/冰/电箭x5 (各20%)<br>炸弹箭x5 (15%)<br>士兵之弓 (25%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: #666;">无限定</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>生命鲈鱼 (25%)<br>生命鲑鱼 (25%)<br>顶级兽肉 (10%)<br>顶级禽肉 (10%)<br>箭矢x5 (30%)</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">骑士之弓 (100%)</td>
+                            <td class="col-stage3">骑士之弓 (70%)<br>王族之弓 (20%)<br>游隼弓 (10%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="3" data-value="20">
+            <div class="amiibo-title">👑 塞尔达 / Zelda</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>海拉鲁草 (35%)<br>冰冷香草 (10%)<br>暖暖香草 (10%)<br>酥麻香草 (10%)<br>速速胡萝卜 (10%)<br>速速紫罗兰 (5%)<br>大剑草 (5%)<br>铠甲草 (5%)<br>铠甲南瓜 (5%)<br>潜行草 (5%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">琥珀 (20%)<br>蛋白石 (20%)<br>黄玉 (5%)<br>蓝宝石 (5%)<br>红宝石 (5%)<br>钻石 (1%)<br>星星碎片 (1%)<br>夜光石 (3%)<br>旅人盾 (20%)<br>士兵盾 (20%)</td>
+                            <td class="col-stage2">琥珀 (15%)<br>蛋白石 (33%)<br>黄玉/蓝宝/红宝 (各5%)<br>钻石 (1%)<br>星星碎片 (1%)<br>夜光石 (5%)<br>士兵盾 (30%)</td>
+                            <td class="col-stage3">琥珀 (15%)<br>蛋白石 (33%)<br>黄玉/蓝宝/红宝 (各5%)<br>钻石 (1%)<br>星星碎片 (1%)<br>夜光石 (5%)<br>士兵盾 (30%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: #666;">无限定</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>生命小萝卜 (30%)<br>生命大萝卜 (10%)<br>毅力胡萝卜 (40%)</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">骑士盾 (100%)</td>
+                            <td class="col-stage3">骑士盾 (60%)<br>王族盾 (30%)<br>太阳盾 (20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="4" data-value="5">
+            <div class="amiibo-title">👾 守护者 / Guardian</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>铁箱 (100%)<br><small style="color: #888;">破坏里面有东西</small></td>
+                            <td style="text-align: center; vertical-align: middle;">3个</td>
+                            <td class="col-stage1">生锈的盾/枪/剑/双手剑 (各20%)<br>守护者之盾/枪/匕首/斧 (各5%)</td>
+                            <td class="col-stage2">守护者之盾/枪/匕首/斧 (各25%)</td>
+                            <td class="col-stage3">守护者防具与武器系列 (含+与++不同概率)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">守护者之盾+ / ++<br>守护者之枪+ / ++<br>守护者之斧+ / ++</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>铁箱 (100%)</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">古代核心 (95%) / 巨大古代核心 (5%)</td>
+                            <td class="col-stage2">古代兵装·箭 (15%) / 箭x3 (5%) / 古代核心 (75%) / 巨大 (5%)</td>
+                            <td class="col-stage3">古代兵装·箭 (15%) / 箭x3 (5%) / 古代核心 (75%) / 巨大 (5%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="5" data-value="21">
+            <div class="amiibo-title">🐷 波克布林 / Bokoblin</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>兽肉 (90%)<br>高级兽肉 (10%)</td>
+                            <td style="text-align: center; vertical-align: middle;">6~8个</td>
+                            <td class="col-stage1">波克/尖刺波克系列武器盾牌 (各10%)</td>
+                            <td class="col-stage2">尖刺波克弓/盾/枪/棒/棍 (各20%)</td>
+                            <td class="col-stage3">尖刺波克弓/盾/枪/棒/棍 (各20%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: #666;">无限定</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>顶级兽肉 (20%)<br>波克布林的肝脏 (80%)</td>
+                            <td style="text-align: center; vertical-align: middle;">1个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">龙骨波克弓/盾/枪/棒/棍 (各20%)</td>
+                            <td class="col-stage3">龙骨波克弓/盾/枪/棒/棍 (各20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="6" data-value="8">
+            <div class="amiibo-title">🧜‍♀️ 米法 / Mipha</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>各类鲈鱼、鲤鱼、鲷鱼、鳟鱼等水产素材及概率</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">旅人之枪 (100%)</td>
+                            <td class="col-stage2">卓拉之枪 (100%)</td>
+                            <td class="col-stage3">卓拉之枪 (100%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">神兽兵装·露塔</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>生命鲈鱼 (50%)<br>生命鲑鱼 (50%)</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">钻石 (20%) / 士兵之枪 (80%)</td>
+                            <td class="col-stage3">钻石 (40%) / 银鳞之枪 (40%) / 神兽兵装·露塔 (20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="7" data-value="11">
+            <div class="amiibo-title">🦎 达尔克尔 / Daruk</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>岩盐 (60%) / 打火石 (30%) / 琥珀 (10%)</td>
+                            <td style="text-align: center; vertical-align: middle;">6~8个</td>
+                            <td class="col-stage1">旅人双手剑 (100%)</td>
+                            <td class="col-stage2">劈石剑 (100%)</td>
+                            <td class="col-stage3">劈石剑 (100%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">神兽兵装·鲁达尼亚</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>各种宝石素材概率说明</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">钻石 (20%) / 骑士双手剑 (80%)</td>
+                            <td class="col-stage3">钻石 (40%) / 碎岩剑 (40%) / 神兽兵装·鲁达尼亚 (20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="8" data-value="9">
+            <div class="amiibo-title">🦅 力巴尔 / Revali</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>各种水果、莲蓬、香蕉、木箭奖励概率</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">旅人之弓 (100%)</td>
+                            <td class="col-stage2">飞燕弓 (100%)</td>
+                            <td class="col-stage3">飞燕弓 (100%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">神兽兵装·梅德</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>生命榴莲 (70%) / 箭矢x5 (30%)</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">钻石 (20%) / 士兵弓 (80%)</td>
+                            <td class="col-stage3">钻石 (40%) / 游隼弓 (40%) / 神兽兵装·梅德 (20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="9" data-value="10">
+            <div class="amiibo-title">⚡ 乌尔波扎 / Urbosa</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>各式兽肉、禽肉素材基础组合</td>
+                            <td style="text-align: center; vertical-align: middle;">6~8个</td>
+                            <td class="col-stage1">旅人之剑 (50%) / 旅人盾 (50%)</td>
+                            <td class="col-stage2">格鲁德匕首 (50%) / 格鲁德盾 (50%)</td>
+                            <td class="col-stage3">格鲁德匕首 (50%) / 格鲁德盾 (50%)</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">神兽兵装·娜波力斯</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>顶级兽肉/禽肉及电箭概率</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">钻石 (20%) / 士兵剑与盾组合</td>
+                            <td class="col-stage3">钻石 (40%) / 月光匕首 (20%) / 太阳盾 (20%) / 神兽兵装 (20%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="10" data-value="2">
+            <div class="amiibo-title">✨ 塞尔达 (大乱斗系列) / Zelda (Smash Bros)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>海拉鲁草、各式蔬菜与草药奖励</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">各种矿石组合以及旅人之弓概率</td>
+                            <td class="col-stage2">各种矿石占比以及高级士兵弓箭概率</td>
+                            <td class="col-stage3">高级矿石概率增加与士兵之弓占比</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">黄昏之光弓</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>大萝卜、毅力胡萝卜、宁静公主组合</td>
+                            <td style="text-align: center; vertical-align: middle;">2~3个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">骑士之弓 (100%)</td>
+                            <td class="col-stage3">骑士之弓 (60%) / 王族之弓 (30%) / 黄昏之光弓 (10%) 🌟</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="11" data-value="3">
+            <div class="amiibo-title">🐎 林克 (大乱斗 / 黄昏公主) / Link (Smash / Twilight Princess)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>丰富的苹果、椰子、蜜瓜等多属性水果</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">各种属性箭x5与基础旅人武器盾牌</td>
+                            <td class="col-stage2">各种属性箭x5与中阶士兵武器盾牌</td>
+                            <td class="col-stage3">同基础中阶进度武器与盾牌占比</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">黄昏之勇者套装<br><span style="color: #ff5555;">光之马伊波娜</span></td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>生命榴莲 (40%) / 箭矢x60 (60%)</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">黄昏之勇者帽子/衣服/裤子特殊分配</td>
+                            <td class="col-stage2">骑士盾与剑、黄昏勇者防具稀有混落</td>
+                            <td class="col-stage3">骑士系列、黄昏防具系列动态综合概率</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="12" data-value="16">
+            <div class="amiibo-title">🧔 加依多夫 (大乱斗系列) / Ganondorf (Smash Bros)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>木桶 (100%)<br><small style="color: #888;">破坏内部掉落基础道具</small></td>
+                            <td style="text-align: center; vertical-align: middle;">4~5个</td>
+                            <td class="col-stage1">包含基础琥珀、各种单体宝石以及旅人双手大剑</td>
+                            <td class="col-stage2">引入格鲁德大剑、莫利布林肝脏、多种宝石综合比</td>
+                            <td class="col-stage3">格鲁德双手大剑概率增加、极低概率莱尼尔肝脏</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">六贤者之剑</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>炸药桶 (60%) / 波克布林的肝脏 (40%)</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">骑士双手剑 (100%)</td>
+                            <td class="col-stage3">骑士双手剑 (75%) / 六贤者之剑 (25%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="13" data-value="7">
+            <div class="amiibo-title">🥷 希克 (大乱斗系列) / Sheik (Smash Bros)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>海拉鲁蘑菇、速速、大剑、铠甲、潜行等多属性蘑菇</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">各属性元素箭矢组合、护心盾与戒心小刀各半</td>
+                            <td class="col-stage2">属性箭奖励、护心盾、戒心小刀与长刀分配</td>
+                            <td class="col-stage3">一心之弓、护心盾、蜿蜒枪、戒心长刀等综合忍具</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">希克的面罩</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>毅力蘑菇、生命松露组合与箭矢几率</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">护心盾/戒心小刀各30%、希克面罩高达40%</td>
+                            <td class="col-stage2">保持希克面罩40%的高概率产出率</td>
+                            <td class="col-stage3">静心大剑、其余忍具配合40%的面罩概率</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="14" data-value="13">
+            <div class="amiibo-title">⛵ 卡通林克 (大乱斗 / 风之律动) / Toon Link (Smash / Wind Waker)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>包含海拉鲁鲈鱼、多种鲤鱼鲷鱼等鱼类总汇</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">属性箭矢、原生飞旋镖与基础旅人单手剑</td>
+                            <td class="col-stage2">属性箭、经典飞旋镖与常规士兵剑比例</td>
+                            <td class="col-stage3">基础掉落属性分布与中阶过渡相同</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">风之勇者套装<br>海风飞旋镖</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>生命多产鱼类组合与基本箭矢总汇</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">风之勇者防具三件套初始阶段按比例直接分配</td>
+                            <td class="col-stage2">骑士之剑、风之勇者套装以及15%海风飞旋镖</td>
+                            <td class="col-stage3">骑士之剑、风之勇者套装以及15%海风飞旋镖</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="15" data-value="15">
+            <div class="amiibo-title">🧱 林克 (初代 8-Bit) / Link (8-Bit)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>全额掉落基础破坏型木桶奖励机制</td>
+                            <td style="text-align: center; vertical-align: middle;">4~5个</td>
+                            <td class="col-stage1">元素属性箭x5系列、旅人圆盾与基础旅人长剑</td>
+                            <td class="col-stage2">属性箭、标准型士兵盾与标准士兵单手剑</td>
+                            <td class="col-stage3">机制概率比例维持标准中阶不变</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">初始之勇者套装<br>剑 (初代限定型)</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>常规炸药桶机制配合基础大量单发箭矢</td>
+                            <td style="text-align: center; vertical-align: middle;">1~3个</td>
+                            <td class="col-stage1">初始之勇者特殊怀旧防具三件套直接比例产出</td>
+                            <td class="col-stage2">中级骑士系列武器盾牌混编初始勇者套奖励</td>
+                            <td class="col-stage3">防具占比调整、特别引入10%概率获得“剑”</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="16" data-value="6">
+            <div class="amiibo-title">🎼 林克 (时之笛) / Link (Ocarina of Time)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>大份额传统普通兽肉与部分高级兽肉</td>
+                            <td style="text-align: center; vertical-align: middle;">6~8个</td>
+                            <td class="col-stage1">各类属性元素箭与重型旅人双手重剑</td>
+                            <td class="col-stage2">各类属性元素箭与标准型士兵双手剑</td>
+                            <td class="col-stage3">基础中阶阶段武器装备属性池规则</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">时之勇者套装<br>大古隆之剑</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>少部分顶级兽肉配合基础箭矢x5高概率</td>
+                            <td style="text-align: center; vertical-align: middle;">1个</td>
+                            <td class="col-stage1">时之勇者怀旧全套防具在初始阶段提供抽取</td>
+                            <td class="col-stage2">骑士双手重剑混编时之勇者抽取防具库</td>
+                            <td class="col-stage3">防具占比调整、特别引入10%核心大古隆之剑</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="17" data-value="1">
+            <div class="amiibo-title">🎭 林克 (魔吉拉的面具) / Link (Majora's Mask)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>包含海拉鲁、精力、元素以及各大功能性辅助蘑菇总汇</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">全套四种元素特殊属性箭矢与基本旅人双手剑</td>
+                            <td class="col-stage2">全套四种元素特殊属性箭矢与标准型士兵双手剑</td>
+                            <td class="col-stage3">概率规则与前置中阶装备掉落数据同步</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">鬼神套装<br>鬼神之剑</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>核心高产毅力蘑菇、生命高级松露以及批量箭矢</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">提供核心极品鬼神防具套装三件套初始直接抽取</td>
+                            <td class="col-stage2">骑士级大剑混装鬼神防具特定概率库</td>
+                            <td class="col-stage3">骑士双手剑、精简防具库、并加入10%概率鬼神之剑</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="18" data-value="12">
+            <div class="amiibo-title">🗡️ 林克 (通天剑/天空之剑) / Link (Skyward Sword)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>专属空中机制常规高空坠落箱体系</td>
+                            <td style="text-align: center; vertical-align: middle;">3个</td>
+                            <td class="col-stage1">极速功能特殊箭矢配属常规旅人基础单手兵刃防具</td>
+                            <td class="col-stage2">四元素齐备箭矢产出组合中阶通用型两件套</td>
+                            <td class="col-stage3">基础战备资源分布模式沿袭前置进度</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">天空之勇者套装<br>女神之剑</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>大比例单体常规木箭配合小比重成扎箭矢包</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">专属经典天空之勇者三件套在最初期阶段完全开放</td>
+                            <td class="col-stage2">骑士系列单手装备混编抽取专属高还原度天空防具</td>
+                            <td class="col-stage3">调整防具结构、最终引入10%极富收藏价值的女神之剑</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="19" data-value="17">
+            <div class="amiibo-title">👑 塞尔达 (风之律动) / Zelda (Wind Waker)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width: 80px;">属性</th>
+                            <th colspan="2">掉落素材</th>
+                            <th colspan="3">掉落宝箱</th>
+                            <th rowspan="2" style="width: 150px;">限定图鉴</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;" class="th-sub">素材内容与概率</th>
+                            <th style="width: 80px;" class="th-sub">数量</th>
+                            <th style="width: 200px;" class="th-sub col-stage1">第一座神庙通关后</th>
+                            <th style="width: 200px;" class="th-sub col-stage2">获得滑翔伞后</th>
+                            <th style="width: 200px;" class="th-sub col-stage3">任一神兽通关后</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>包含海拉鲁原生草植、功能性元素植物的大面积汇总</td>
+                            <td style="text-align: center; vertical-align: middle;">8个</td>
+                            <td class="col-stage1">大面积常见普及型传统矿物宝石、附带基本旅人护盾</td>
+                            <td class="col-stage2">矿石品质和概率提升、附带标配型士兵系列防御盾</td>
+                            <td class="col-stage3">同中阶相同模式的基础宝石级常规物资分配规则</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle;" class="limited-box">勇者盾</td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>功能型大/小生命萝卜、特殊培育级功能南瓜等</td>
+                            <td style="text-align: center; vertical-align: middle;">1~2个</td>
+                            <td class="col-stage1">-</td>
+                            <td class="col-stage2">提供高防御高耐久级别的中阶骑士盾 (100%)</td>
+                            <td class="col-stage3">混入高阶王族盾系列防御盾、并配属10%独特的勇者盾</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="20" data-value="4">
+            <div class="amiibo-title">🐺 林克狼 (黄昏公主) / Wolf Link</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">属性</th>
+                            <th style="width: 330px;">掉落素材</th>
+                            <th style="width: 100px;">数量</th>
+                            <th>特殊功能说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rarity-tag">普通</td>
+                            <td>掉落大范围基础生存采集型菇类植物及部分普通兽肉素材</td>
+                            <td style="text-align: center; vertical-align: middle;">3~5个</td>
+                            <td rowspan="2" style="vertical-align: middle; line-height: 1.8;">
+                                使用后可<strong>直接呼叫狼形态林克</strong>实体参与大世界冒险。<br>
+                                • 生存血量基础配置预设为常规3颗心。<br>
+                                • 基于关联前代数据可跨界读取记录、激活最高强度的<strong>20心满血保镖狼</strong>状态。<br>
+                                • <strong>注：该功能性实体硬件不享有任何类型宝箱产出。</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="rarity-tag rare-text">稀有</td>
+                            <td>高额概率提供各类基础高饱腹感生鲜肉食以及生命松露</td>
+                            <td style="text-align: center; vertical-align: middle;">1 triage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="amiibo-section" data-default-id="21" data-value="14">
+            <div class="amiibo-title">🛡️ 织梦岛林克 (LA Link) & 大乱斗幼年林克 (SSB Young Link)</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 140px;">游戏进度阶段</th>
+                            <th style="width: 450px;" class="th-sub">普通奖励 (宝箱内容)</th>
+                            <th class="th-sub">稀有奖励 (地面/宝箱扩展)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="col-stage1">
+                            <th style="background: rgba(255,255,255,0.02); text-align: left;">第一座神庙通关后</th>
+                            <td>全系列初阶旅人级别轻型三兵刃机制组合、并附带海量各规格箭矢包</td>
+                            <td rowspan="2" style="vertical-align: middle;"><strong>地面固定特殊补充：</strong><br>优质高营养生存类鱼产（如生命鲈鱼等）、整包木箭x5</td>
+                        </tr>
+                        <tr class="col-stage2">
+                            <th style="background: rgba(255,255,255,0.02); text-align: left;">获得滑翔伞后</th>
+                            <td>全系列过渡期中阶基础型士兵制式三大武器库、并维持批量箭矢供给</td>
+                        </tr>
+                        <tr class="col-stage3">
+                            <th style="background: rgba(255,255,255,0.02); text-align: left;">任一神兽通关后</th>
+                            <td>核心过度期士兵三制式装备系列、外加多样功能属性元素射击箭组</td>
+                            <td>高阶主力输出型全套王族武器长短兵（20%）以及常规精锐骑士单兵套装系列</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // 动态视图与重排主逻辑
+    function switchView(viewType) {
+        // 1. 同步切换所有按钮的激活高亮状态
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // 捕捉被按下的按钮并使其高亮
+        const eventBtn = event ? event.target : null;
+        if(eventBtn) eventBtn.classList.add('active');
+
+        // 2. 将状态绑定到 body 标签上，利用 CSS 规则瞬间弱化非核心列、高亮聚焦列
+        document.body.setAttribute('data-view', viewType);
+
+        // 3. 处理价值排序或恢复原状的重组逻辑
+        const listContainer = document.getElementById('amiibo-list');
+        const items = Array.from(listContainer.getElementsByClassName('amiibo-section'));
+
+        if (viewType === 'value') {
+            // “按价值排序”：从小到大排列（因为 1 代表穆修拉面具第一名，数值越低代表顺位越高）
+            items.sort((a, b) => {
+                let valA = parseInt(a.getAttribute('data-value')) || 99;
+                let valB = parseInt(b.getAttribute('data-value')) || 99;
+                return valA - valB;
+            });
+        } else {
+            // 默认排序（或者其他进度状态）：恢复 1 到 21 原版顺位
+            items.sort((a, b) => {
+                let idA = parseInt(a.getAttribute('data-default-id')) || 0;
+                let idB = parseInt(b.getAttribute('data-default-id')) || 0;
+                return idA - idB;
+            });
+        }
+
+        // 清空列表并以极高的执行速度重新渲染排列好的 DOM 节点
+        listContainer.innerHTML = '';
+        items.forEach(item => listContainer.appendChild(item));
+    }
+</script>
+
+</body>
+</html>
