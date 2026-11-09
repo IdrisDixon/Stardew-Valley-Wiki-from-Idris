@@ -69,16 +69,16 @@ function renderFishing() {
         const matchLocation = (currentFishLocation === 'All' || fish.location.includes(currentFishLocation));
         if (matchSeason && matchLocation) {
             container.innerHTML += `
-                <div class="card" style="border-left: 4px solid #1565c0;">
+                <div class="card">
                     <h2>${fish.name}</h2>
                     <div class="meta-info">
-                        <span class="badge" style="background-color: #e3f2fd; color: #0d47a1;">Location: ${fish.location}</span>
+                        <span class="badge">Location: ${fish.location}</span>
                     </div>
                     <div class="card-details">
                         <span><b>Weather:</b> ${fish.weather}</span>
                         <span><b>Time:</b> ${fish.time}</span>
                     </div>
-                    <div class="reward" style="border-left-color: #1565c0;"><b>Difficulty:</b> ${fish.difficulty}</div>
+                    <div class="reward"><b>Difficulty:</b> ${fish.difficulty}</div>
                 </div>`;
         }
     });
@@ -133,15 +133,15 @@ function renderArtisan() {
     if (!container) return; container.innerHTML = "";
     allArtisan.forEach(machine => {
         container.innerHTML += `
-            <div class="card" style="border-left: 4px solid #7b1fa2;">
+            <div class="card">
                 <h2>${machine.name}</h2>
                 <div class="meta-info">
-                    <span class="badge" style="background-color: #faf5ff; color:#4a148c;">Unlock: ${machine.unlock}</span>
+                    <span class="badge">Unlock: ${machine.unlock}</span>
                 </div>
                 <div class="card-details">
                     <span><b>Ingredients:</b> ${machine.ingredients}</span>
                 </div>
-                <div class="reward" style="border-left-color: #7b1fa2; background-color: #f3e5f5;"><b>Use:</b> ${machine.use}</div>
+                <div class="reward"><b>Use:</b> ${machine.use}</div>
             </div>`;
     });
 }
@@ -158,16 +158,16 @@ function renderRanch() {
 
         if (matchCategory) {
             container.innerHTML += `
-                <div class="card" style="border-left: 4px solid #388e3c;">
+                <div class="card">
                     <h2>${item.name}</h2>
                     <div class="meta-info">
-                        <span class="badge" style="background-color: #f1f8e9; color: #1b5e20;">Cost: ${item.cost}</span>
+                        <span class="badge">Cost: ${item.cost}</span>
                     </div>
                     <div class="card-details">
                         <span><b>Requirement:</b> ${item.unlock}</span>
                         ${isLivestock ? `<span><b>Building:</b> ${item.building}</span>` : ''}
                     </div>
-                    <div class="reward" style="border-left-color: #388e3c;"><b>Function:</b> ${item.produce}</div>
+                    <div class="reward"><b>Function:</b> ${item.produce}</div>
                 </div>`;
         }
     });
@@ -186,16 +186,16 @@ function renderRobin() {
 
         if (matchCategory) {
             container.innerHTML += `
-                <div class="card" style="border-left: 4px solid #5d4037;">
+                <div class="card">
                     <h2>${build.name}</h2>
                     <div class="meta-info">
-                        <span class="badge" style="background-color: #efebe9; color: #3e2723;">Cost: ${build.cost}</span>
+                        <span class="badge">Cost: ${build.cost}</span>
                         <span class="badge">Size: ${build.size}</span>
                     </div>
                     <div class="card-details">
                         <span><b>Materials:</b> ${build.materials}</span>
                     </div>
-                    <div class="reward" style="border-left-color: #5d4037;"><b>Function:</b> ${build.function}</div>
+                    <div class="reward"><b>Function:</b> ${build.function}</div>
                 </div>`;
         }
     });
@@ -213,7 +213,7 @@ function filterRoom(room) {
     currentRoom = room; 
     const btns = document.querySelectorAll('#bundles-panel .filter-group:nth-child(2) .filter-btn');
     btns.forEach(b => { 
-        if((room === 'All' && b.innerText.includes('All')) || b.innerText.includes(room)) b.classList.add('active'); 
+        if((room === 'All' && b.innerText.includes('All')) || b.getAttribute('onclick').includes("'" + room + "'")) b.classList.add('active'); 
         else b.classList.remove('active'); 
     });
     renderBundles(); 

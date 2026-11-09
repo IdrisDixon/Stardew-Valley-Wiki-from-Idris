@@ -3,156 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breath of The World Amiibo图鉴</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0c0d10;
-            --text-color: #f0f2f5;
-            --zelda-neon: #3fffcf;
-            --rare-color: #ffaa00;
-            --table-border: rgba(255, 255, 255, 0.08);
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --focus-bg: rgba(63, 255, 207, 0.08);
-        }
-        body {
-            margin: 0;
-            padding: 40px 20px;
-            background: radial-gradient(circle at center, #141f1d 0%, #0c0d10 70%);
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-family: 'Oswald', sans-serif;
-            text-align: center;
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #3fffcf 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* 选项卡 (Tabs) 样式排版 */
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
-        .tab-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--table-border);
-            color: #aaa;
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-        .tab-btn:hover {
-            border-color: rgba(63, 255, 207, 0.4);
-            color: #fff;
-        }
-        .tab-btn.active {
-            background: rgba(63, 255, 207, 0.15);
-            border-color: var(--zelda-neon);
-            color: var(--zelda-neon);
-            box-shadow: 0 0 15px rgba(63, 255, 207, 0.2);
-        }
-
-        /* 动态图鉴卡片列表包裹层 */
-        #amiibo-list {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .amiibo-section {
-            background: var(--card-bg);
-            border: 1px solid var(--table-border);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 35px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-        .amiibo-section:hover {
-            border-color: rgba(63, 255, 207, 0.2);
-        }
-        
-        .amiibo-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
-            color: #fff;
-            margin: 0 0 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 10px;
-        }
-        
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.9rem;
-            min-width: 900px;
-        }
-        th, td {
-            border: 1px solid var(--table-border);
-            padding: 12px 16px;
-            vertical-align: top;
-            line-height: 1.6;
-            transition: all 0.2s ease;
-        }
-        th {
-            background-color: rgba(255, 255, 255, 0.04);
-            font-weight: 500;
-            color: #fff;
-            text-align: center;
-        }
-        .th-sub {
-            background-color: rgba(63, 255, 207, 0.03);
-            color: var(--zelda-neon);
-            font-size: 0.85rem;
-        }
-        .rarity-tag {
-            text-align: center;
-            font-weight: 500;
-            width: 70px;
-        }
-        .rare-text {
-            color: var(--rare-color);
-        }
-        .limited-box {
-            color: var(--rare-color);
-            font-weight: 500;
-        }
-        tr:hover td {
-            background-color: rgba(255, 255, 255, 0.01);
-        }
-
-        /* 状态联动控制：弱化非核心列，高亮目标列 */
-        body[data-view="stage1"] .col-stage2, body[data-view="stage1"] .col-stage3 { opacity: 0.3; }
-        body[data-view="stage1"] .col-stage1 { background-color: var(--focus-bg); }
-
-        body[data-view="stage2"] .col-stage1, body[data-view="stage2"] .col-stage3 { opacity: 0.3; }
-        body[data-view="stage2"] .col-stage2 { background-color: var(--focus-bg); }
-
-        body[data-view="stage3"] .col-stage1, body[data-view="stage3"] .col-stage2 { opacity: 0.3; }
-        body[data-view="stage3"] .col-stage3 { background-color: var(--focus-bg); }
-    </style>
+    <title>Zelda: BotW - Amiibo 独立全掉落交互图鉴</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body data-view="default">
 
@@ -237,7 +89,7 @@
                             <td class="col-stage1">火箭x5 (10%)<br>冰箭x5 (10%)<br>电箭x5 (10%)<br>炸弹箭x5 (10%)<br>旅人之弓 (30%)<br>士兵之弓 (30%)</td>
                             <td class="col-stage2">火箭x5 (20%)<br>冰箭x5 (20%)<br>电箭x5 (20%)<br>炸弹箭x5 (15%)<br>士兵之弓 (25%)</td>
                             <td class="col-stage3">火/冰/电箭x5 (各20%)<br>炸弹箭x5 (15%)<br>士兵之弓 (25%)</td>
-                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: #666;">无限定</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: var(--muted);">无限定</td>
                         </tr>
                         <tr>
                             <td class="rarity-tag rare-text">稀有</td>
@@ -278,7 +130,7 @@
                             <td class="col-stage1">琥珀 (20%)<br>蛋白石 (20%)<br>黄玉 (5%)<br>蓝宝石 (5%)<br>红宝石 (5%)<br>钻石 (1%)<br>星星碎片 (1%)<br>夜光石 (3%)<br>旅人盾 (20%)<br>士兵盾 (20%)</td>
                             <td class="col-stage2">琥珀 (15%)<br>蛋白石 (33%)<br>黄玉/蓝宝/红宝 (各5%)<br>钻石 (1%)<br>星星碎片 (1%)<br>夜光石 (5%)<br>士兵盾 (30%)</td>
                             <td class="col-stage3">琥珀 (15%)<br>蛋白石 (33%)<br>黄玉/蓝宝/红宝 (各5%)<br>钻石 (1%)<br>星星碎片 (1%)<br>夜光石 (5%)<br>士兵盾 (30%)</td>
-                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: #666;">无限定</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: var(--muted);">无限定</td>
                         </tr>
                         <tr>
                             <td class="rarity-tag rare-text">稀有</td>
@@ -314,7 +166,7 @@
                     <tbody>
                         <tr>
                             <td class="rarity-tag">普通</td>
-                            <td>铁箱 (100%)<br><small style="color: #888;">破坏里面有东西</small></td>
+                            <td>铁箱 (100%)<br><small style="color: var(--muted);">破坏里面有东西</small></td>
                             <td style="text-align: center; vertical-align: middle;">3个</td>
                             <td class="col-stage1">生锈的盾/枪/剑/双手剑 (各20%)<br>守护者之盾/枪/匕首/斧 (各5%)</td>
                             <td class="col-stage2">守护者之盾/枪/匕首/斧 (各25%)</td>
@@ -361,7 +213,7 @@
                             <td class="col-stage1">波克/尖刺波克系列武器盾牌 (各10%)</td>
                             <td class="col-stage2">尖刺波克弓/盾/枪/棒/棍 (各20%)</td>
                             <td class="col-stage3">尖刺波克弓/盾/枪/棒/棍 (各20%)</td>
-                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: #666;">无限定</td>
+                            <td rowspan="2" style="text-align: center; vertical-align: middle; color: var(--muted);">无限定</td>
                         </tr>
                         <tr>
                             <td class="rarity-tag rare-text">稀有</td>
@@ -650,7 +502,7 @@
                     <tbody>
                         <tr>
                             <td class="rarity-tag">普通</td>
-                            <td>木桶 (100%)<br><small style="color: #888;">破坏内部掉落基础道具</small></td>
+                            <td>木桶 (100%)<br><small style="color: var(--muted);">破坏内部掉落基础道具</small></td>
                             <td style="text-align: center; vertical-align: middle;">4~5个</td>
                             <td class="col-stage1">包含基础琥珀、各种单体宝石以及旅人双手大剑</td>
                             <td class="col-stage2">引入格鲁德大剑、莫利布林肝脏、多种宝石综合比</td>
@@ -1011,16 +863,16 @@
                     </thead>
                     <tbody>
                         <tr class="col-stage1">
-                            <th style="background: rgba(255,255,255,0.02); text-align: left;">第一座神庙通关后</th>
+                            <th style="background: var(--sage-light); text-align: left;">第一座神庙通关后</th>
                             <td>全系列初阶旅人级别轻型三兵刃机制组合、并附带海量各规格箭矢包</td>
                             <td rowspan="2" style="vertical-align: middle;"><strong>地面固定特殊补充：</strong><br>优质高营养生存类鱼产（如生命鲈鱼等）、整包木箭x5</td>
                         </tr>
                         <tr class="col-stage2">
-                            <th style="background: rgba(255,255,255,0.02); text-align: left;">获得滑翔伞后</th>
+                            <th style="background: var(--sage-light); text-align: left;">获得滑翔伞后</th>
                             <td>全系列过渡期中阶基础型士兵制式三大武器库、并维持批量箭矢供给</td>
                         </tr>
                         <tr class="col-stage3">
-                            <th style="background: rgba(255,255,255,0.02); text-align: left;">任一神兽通关后</th>
+                            <th style="background: var(--sage-light); text-align: left;">任一神兽通关后</th>
                             <td>核心过度期士兵三制式装备系列、外加多样功能属性元素射击箭组</td>
                             <td>高阶主力输出型全套王族武器长短兵（20%）以及常规精锐骑士单兵套装系列</td>
                         </tr>

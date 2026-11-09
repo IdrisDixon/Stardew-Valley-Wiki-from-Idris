@@ -1,320 +1,38 @@
-/* ================= 🌌 全局重置与暗黑底调 (全面统一塞尔达) ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-:root {
-    --bg-color: #0c0d10;
-    --text-color: #f0f2f5;
-    --stardew-neon: #dda54e;   /* 星露谷专属：标志性复古麦穗金霓虹 */
-    --table-border: rgba(255, 255, 255, 0.08);
-    --card-bg: rgba(255, 255, 255, 0.02);
-    --focus-bg: rgba(221, 165, 78, 0.08);
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* 页面总容器 */
-.app-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at center, #1a1610 0%, #0c0d10 70%); /* 微金暗黑渐变底色 */
-}
-
-/* ================= 🏢 左侧边栏高级样式 (Sidebar) ================= */
-.sidebar {
-    width: 260px;
-    background-color: rgba(16, 17, 22, 0.8);
-    color: #e3e3e3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 16px;
-    flex-shrink: 0; 
-    border-right: 1px solid var(--table-border);
-}
-
-.sidebar-header {
-    display: flex;
-    flex-direction: column; /* 调整为纵向包裹返回键与标题 */
-    gap: 12px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--table-border);
-    align-items: flex-start;
-}
-
-.sidebar-header h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #fff;
-}
-
-.version-tag {
-    font-size: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #888;
-    border: 1px solid var(--table-border);
-}
-
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 20px;
-    flex-grow: 1;
-}
-
-.nav-item {
-    width: 100%;
-    background: none;
-    border: 1px solid transparent;
-    color: #aaa;
-    padding: 12px 16px;
-    text-align: left;
-    font-size: 0.95rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.nav-item:hover {
-    border-color: rgba(221, 165, 78, 0.4);
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.02);
-}
-
-.nav-item.active {
-    background: rgba(221, 165, 78, 0.15);
-    border-color: var(--stardew-neon);
-    color: var(--stardew-neon);
-    font-weight: 500;
-    box-shadow: 0 0 15px rgba(221, 165, 78, 0.1);
-}
-
-.sidebar-footer {
-    font-size: 0.75rem;
-    color: #444;
-    text-align: center;
-    padding-top: 10px;
-}
-
-/* ================= 📄 右侧主视窗 ================= */
-.main-content {
-    flex-grow: 1;
-    height: 100%;
-    overflow-y: auto;
-    padding: 24px;
-    background: transparent; /* 移除原本的亮色渐变，采用总容器的全局暗黑 */
-}
-
-/* 模块面板显隐控制 */
-.tab-panel {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.tab-panel.active {
-    display: flex;
-}
-
-/* ================= 🎛️ 二级胶囊筛选器容器 ================= */
-.filter-container {
-    background: var(--card-bg);
-    border: 1px solid var(--table-border);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.filter-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.filter-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #888;
-    min-width: 70px;
-}
-
-.filter-btn {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--table-border);
-    color: #999;
-    padding: 6px 16px;
-    border-radius: 100px; 
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.filter-btn:hover {
-    border-color: rgba(221, 165, 78, 0.3);
-    color: #fff;
-}
-
-.filter-btn.active {
-    background: rgba(221, 165, 78, 0.12);
-    border-color: var(--stardew-neon);
-    color: var(--stardew-neon);
-    font-weight: 500;
-}
-
-/* ================= 🃏 完美归位：保持单行扁平化，注入塞尔达硬核边框科技感 ================= */
-.bundle-grid, #crops-container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    margin-top: 10px;
-    width: 100%;
-}
-
-/* 覆盖卡片样式：亮白变深邃暗黑，灰边变科幻极细边 */
-.card, .crop-card {
-    background: var(--card-bg) !important; 
-    border: 1px solid var(--table-border) !important; 
-    border-radius: 8px !important;
-    padding: 12px 16px !important;
-    display: flex !important;
-    flex-direction: row !important; /* 核心：完美保留你的单行排版 */
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;       
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
-    transition: all 0.25s ease !important;
-}
-
-.card:hover, .crop-card:hover {
-    transform: translateX(4px) !important;
-    background-color: rgba(255, 255, 255, 0.04) !important;
-    border-color: rgba(221, 165, 78, 0.3) !important;
-}
-
-/* 统一最左侧名称标题颜色 */
-.card h2, .crop-header h2 {
-    font-size: 1.05rem !important;
-    font-weight: 600 !important;
-    border-bottom: none !important;
-    margin-bottom: 0 !important;
-    width: 150px !important; 
-    flex-shrink: 0 !important;
-    color: #ffffff !important; /* 变白 */
-}
-
-/* 属性小标签 */
-.meta-info, .crop-meta {
-    display: flex !important;
-    gap: 6px !important;
-    margin-bottom: 0 !important;
-    width: 120px !important; 
-    flex-shrink: 0 !important;
-    flex-wrap: wrap !important; 
-}
-
-.badge, .crop-badge {
-    font-size: 0.75rem !important;
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    color: #aaa !important;
-    border: 1px solid var(--table-border) !important;
-}
-
-/* 中间核心文本区域 */
-.card-details, .crop-stats {
-    display: flex !important;
-    flex-direction: row !important; 
-    gap: 20px !important;
-    font-size: 0.9rem !important;
-    color: #e0e2e5 !important; /* 字体反白提升对比度 */
-    flex-grow: 1 !important; 
-    padding: 0 16px !important;
-    flex-wrap: wrap !important; 
-    background: none !important;
-}
-
-/* 修复Crops数据行的内部布局 */
-.crop-stats .stat-row {
-    display: flex !important;
-    gap: 4px !important;
-}
-
-/* 统一最右侧的独立高亮区域（利润或奖励） */
-.reward, .crop-profit {
-    margin-top: 0 !important;
-    padding: 6px 12px !important;
-    background-color: rgba(255, 255, 255, 0.01) !important;
-    border-left: 3px solid var(--stardew-neon) !important; /* 左侧高亮条切换为星露谷金 */
-    border-radius: 4px !important;
-    font-size: 0.85rem !important;
-    width: 200px !important; 
-    text-align: right !important;
-    flex-shrink: 0 !important; 
-    border-top: none !important;
-    color: var(--stardew-neon) !important;
-}
-
-/* ================= 📱 移动端自适应（同步暗黑重构） ================= */
-@media (max-width: 768px) {
-    .card, .crop-card {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 8px !important;
-    }
-    .card h2, .crop-header h2 { width: 100% !important; }
-    .meta-info, .crop-meta { width: 100% !important; }
-    .card-details, .crop-stats { padding: 0 !important; flex-direction: column !important; gap: 4px !important; }
-    .reward, .crop-profit { width: 100% !important; text-align: left !important; }
-
-    .app-container { flex-direction: column; height: 100vh; width: 100vw; }
-    .sidebar { width: 100%; height: auto; padding: 12px 16px 8px 16px; border-right: none; border-bottom: 1px solid var(--table-border); gap: 8px; }
-    .sidebar-header { padding-bottom: 8px; border-bottom: none; }
-    .sidebar-header h2 { font-size: 1.1rem; }
-    .sidebar-nav { flex-direction: row; margin-top: 0; gap: 6px; overflow-x: auto; padding-bottom: 6px; }
-    .sidebar-nav::-webkit-scrollbar { display: none; }
-    .nav-item { white-space: nowrap; padding: 6px 12px; font-size: 0.85rem; width: auto; text-align: center; }
-    .sidebar-footer { display: none; }
-    .main-content { padding: 12px; height: calc(100vh - 100px); overflow-y: auto; }
-    .filter-container { padding: 10px; gap: 8px; }
-    .filter-btn { padding: 4px 12px; font-size: 0.8rem; }
-}
-
-/* ==================== 返回大厅按钮独立样式 ==================== */
-.back-home-link {
-    display: inline-block;
-    align-self: flex-start;
-    color: #aaa;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 5px 12px;
-    border: 1px solid var(--table-border);
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    transition: all 0.2s ease-in-out;
-}
-
-.back-home-link:hover {
-    color: #ffffff;
-    background: rgba(221, 165, 78, 0.1);
-    border-color: var(--stardew-neon);
-    box-shadow: 0 0 10px rgba(221, 165, 78, 0.2);
+@import url("../css/theme.css");
+.app-container { display: flex; min-height: 100svh; }
+.sidebar { position: sticky; top: 0; align-self: flex-start; width: 250px; flex-shrink: 0; height: 100svh; overflow-y: auto; padding: 32px 22px 22px; background: var(--paper); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+.sidebar-header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.sidebar-header h2 { margin: 22px 0 0; font-size: 1.55rem; }
+.back-home-link { display: inline-flex; align-items: center; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; font-size: .9rem; }
+.back-home-link:hover { background: var(--sage-light); }
+.sidebar-nav { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+.nav-item { width: 100%; text-align: left; padding: 10px 14px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); font-size: .94rem; }
+.nav-item:hover,.filter-btn:hover { background: var(--sage-light); border-color: var(--sage); }
+.nav-item.active,.filter-btn.active { background: var(--sage-light); border-color: var(--sage); color: var(--green); font-weight: 600; }
+.sidebar-footer { margin-top: auto; padding-top: 32px; color: var(--muted); font-size: .8rem; }
+.main-content { flex: 1; min-width: 0; padding: 36px; }
+.tab-panel { display: none; max-width: 1400px; margin: auto; }
+.tab-panel.active { display: flex; flex-direction: column; gap: 24px; }
+.filter-container { background: var(--paper); padding: 20px; border: 1px solid var(--border); border-radius: 8px; display: flex; flex-direction: column; gap: 16px; }
+.filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filter-label { font-size: .88rem; font-weight: 600; min-width: 82px; color: var(--muted); }
+.filter-btn { padding: 7px 15px; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); font-size: .88rem; }
+.bundle-grid { display: flex; flex-direction: column; gap: 16px; }
+.card,.crop-card { display: grid; grid-template-columns: minmax(125px, .85fr) minmax(110px, .8fr) minmax(180px, 1.6fr) minmax(155px, 1fr); align-items: center; gap: 20px; padding: 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--paper); box-shadow: var(--shadow); overflow-wrap: anywhere; }
+.card h2,.crop-header h2 { font-size: 1.18rem; margin: 0; }
+.meta-info,.crop-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge,.crop-badge { background: var(--sage-light); color: var(--green); border: 1px solid var(--border); border-radius: 4px; padding: 3px 7px; font-size: .78rem; }
+.card-details,.crop-stats { display: flex; flex-direction: column; gap: 8px; font-size: .9rem; }
+.card-details b { font-weight: 600; }
+.reward,.crop-profit { background: var(--wood-light); color: var(--wood-ink); border-left: 2px solid var(--wood); border-radius: 3px; padding: 12px 14px; font-size: .88rem; }
+.stat-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.version-tag { display: inline-block; color: var(--muted); font-size: .8rem; }
+@media(max-width: 1150px) { .card,.crop-card { grid-template-columns: 1fr 1fr; } .main-content { padding: 24px; } }
+@media(max-width: 760px) {
+ .app-container { flex-direction: column; } .sidebar { position: static; width: 100%; height: auto; padding: 20px; border-right: 0; border-bottom: 1px solid var(--border); }
+ .sidebar-header { padding-bottom: 16px; } .sidebar-header h2 { margin-top: 12px; font-size: 1.4rem; }
+ .sidebar-nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 16px; }
+ .nav-item { padding: 10px; font-size: .86rem; } .sidebar-footer { display: none; }
+ .main-content { padding: 20px 16px 32px; } .filter-container { padding: 16px; } .filter-label { width: 100%; }
+ .card,.crop-card { grid-template-columns: 1fr; gap: 14px; padding: 20px; } .reward,.crop-profit { width: 100%; }
 }
