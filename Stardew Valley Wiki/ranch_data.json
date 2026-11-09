@@ -1,0 +1,93 @@
+[
+    {
+        "name": "White / Brown Chicken",
+        "cost": "800g",
+        "unlock": "Available from start",
+        "building": "Coop",
+        "produce": "Egg (White or Brown)"
+    },
+    {
+        "name": "Cow",
+        "cost": "1,500g",
+        "unlock": "Available from start",
+        "building": "Barn",
+        "produce": "Milk"
+    },
+    {
+        "name": "Duck",
+        "cost": "1,200g",
+        "unlock": "Requires Big Coop",
+        "building": "Big Coop",
+        "produce": "Duck Egg, Duck Feather"
+    },
+    {
+        "name": "Goat",
+        "cost": "4,000g",
+        "unlock": "Requires Big Barn",
+        "building": "Big Barn",
+        "produce": "Goat Milk"
+    },
+    {
+        "name": "Sheep",
+        "cost": "8,000g",
+        "unlock": "Requires Deluxe Barn",
+        "building": "Deluxe Barn",
+        "produce": "Wool"
+    },
+    {
+        "name": "Pig",
+        "cost": "16,000g",
+        "unlock": "Requires Deluxe Barn",
+        "building": "Deluxe Barn",
+        "produce": "Truffle (Foraged outside)"
+    },
+    {
+        "name": "Rabbit",
+        "cost": "8,000g",
+        "unlock": "Requires Deluxe Coop",
+        "building": "Deluxe Coop",
+        "produce": "Wool, Rabbit's Foot"
+    },
+    {
+        "name": "Hay",
+        "cost": "50g",
+        "unlock": "Available from start",
+        "building": "None",
+        "produce": "Animal Feed"
+    },
+    {
+        "name": "Milk Pail",
+        "cost": "1,000g",
+        "unlock": "Available from start",
+        "building": "None",
+        "produce": "Tool to milk Cows and Goats"
+    },
+    {
+        "name": "Shears",
+        "cost": "1,000g",
+        "unlock": "Available from start",
+        "building": "None",
+        "produce": "Tool to shear Sheep"
+    },
+    {
+        "name": "Heater",
+        "cost": "2,000g",
+        "unlock": "Available from start",
+        "building": "None",
+        "produce": "Keeps animals happy in Winter"
+    },
+    {
+        "name": "Auto-Grabber",
+        "cost": "25,000g",
+        "unlock": "Farming Level 10",
+        "building": "Barn / Coop",
+        "produce": "Automatically harvests animal produce"
+    },
+    {
+        "name": "Golden Egg",
+        "cost": "100,000g",
+        "unlock": "100% Game Perfection",
+        "building": "Coop",
+        "produce": "Golden Chicken"
+    }
+]

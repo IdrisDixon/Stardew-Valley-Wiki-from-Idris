@@ -1,0 +1,38 @@
+@import url("../Stardew-Valley-Wiki-from-Idris-main/css/theme.css");
+.app-container { display: flex; min-height: 100svh; }
+.sidebar { position: sticky; top: 0; align-self: flex-start; width: 250px; flex-shrink: 0; height: 100svh; overflow-y: auto; padding: 32px 22px 22px; background: var(--paper); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+.sidebar-header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.sidebar-header h2 { margin: 22px 0 0; font-size: 1.55rem; }
+.back-home-link { display: inline-flex; align-items: center; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; font-size: .9rem; }
+.back-home-link:hover { background: var(--sage-light); }
+.sidebar-nav { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+.nav-item { width: 100%; text-align: left; padding: 10px 14px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); font-size: .94rem; }
+.nav-item:hover,.filter-btn:hover { background: var(--sage-light); border-color: var(--sage); }
+.nav-item.active,.filter-btn.active { background: var(--sage-light); border-color: var(--sage); color: var(--green); font-weight: 600; }
+.sidebar-footer { margin-top: auto; padding-top: 32px; color: var(--muted); font-size: .8rem; }
+.main-content { flex: 1; min-width: 0; padding: 36px; }
+.tab-panel { display: none; max-width: 1400px; margin: auto; }
+.tab-panel.active { display: flex; flex-direction: column; gap: 24px; }
+.filter-container { background: var(--paper); padding: 20px; border: 1px solid var(--border); border-radius: 8px; display: flex; flex-direction: column; gap: 16px; }
+.filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filter-label { font-size: .88rem; font-weight: 600; min-width: 82px; color: var(--muted); }
+.filter-btn { padding: 7px 15px; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); font-size: .88rem; }
+.bundle-grid { display: flex; flex-direction: column; gap: 16px; }
+.card,.crop-card { display: grid; grid-template-columns: minmax(125px, .85fr) minmax(110px, .8fr) minmax(180px, 1.6fr) minmax(155px, 1fr); align-items: center; gap: 20px; padding: 24px; border: 1px solid var(--border); border-radius: 8px; background: var(--paper); box-shadow: var(--shadow); overflow-wrap: anywhere; }
+.card h2,.crop-header h2 { font-size: 1.18rem; margin: 0; }
+.meta-info,.crop-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge,.crop-badge { background: var(--sage-light); color: var(--green); border: 1px solid var(--border); border-radius: 4px; padding: 3px 7px; font-size: .78rem; }
+.card-details,.crop-stats { display: flex; flex-direction: column; gap: 8px; font-size: .9rem; }
+.card-details b { font-weight: 600; }
+.reward,.crop-profit { background: var(--wood-light); color: var(--wood-ink); border-left: 2px solid var(--wood); border-radius: 3px; padding: 12px 14px; font-size: .88rem; }
+.stat-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.version-tag { display: inline-block; color: var(--muted); font-size: .8rem; }
+@media(max-width: 1150px) { .card,.crop-card { grid-template-columns: 1fr 1fr; } .main-content { padding: 24px; } }
+@media(max-width: 760px) {
+ .app-container { flex-direction: column; } .sidebar { position: static; width: 100%; height: auto; padding: 20px; border-right: 0; border-bottom: 1px solid var(--border); }
+ .sidebar-header { padding-bottom: 16px; } .sidebar-header h2 { margin-top: 12px; font-size: 1.4rem; }
+ .sidebar-nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 16px; }
+ .nav-item { padding: 10px; font-size: .86rem; } .sidebar-footer { display: none; }
+ .main-content { padding: 20px 16px 32px; } .filter-container { padding: 16px; } .filter-label { width: 100%; }
+ .card,.crop-card { grid-template-columns: 1fr; gap: 14px; padding: 20px; } .reward,.crop-profit { width: 100%; }
+}

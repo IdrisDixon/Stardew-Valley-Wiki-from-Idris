@@ -1,0 +1,242 @@
+[
+    {
+        "name": "Sunfish",
+        "season": "Spring",
+        "weather": "Sun",
+        "location": "River",
+        "time": "6am - 7pm",
+        "difficulty": "30 (Mixed)"
+    },
+    {
+        "name": "Catfish",
+        "season": "Spring",
+        "weather": "Rain",
+        "location": "River",
+        "time": "6am - 12am",
+        "difficulty": "75 (Mixed)"
+    },
+    {
+        "name": "Shad",
+        "season": "Spring",
+        "weather": "Rain",
+        "location": "River",
+        "time": "9am - 2am",
+        "difficulty": "45 (Smooth)"
+    },
+    {
+        "name": "Tiger Trout",
+        "season": "Fall",
+        "weather": "Any",
+        "location": "River",
+        "time": "6am - 7pm",
+        "difficulty": "60 (Dart)"
+    },
+    {
+        "name": "Salmon",
+        "season": "Fall",
+        "weather": "Any",
+        "location": "River",
+        "time": "6am - 7pm",
+        "difficulty": "50 (Mixed)"
+    },
+    {
+        "name": "Lingcod",
+        "season": "Winter",
+        "weather": "Any",
+        "location": "River/Lake",
+        "time": "Anytime",
+        "difficulty": "85 (Sinker)"
+    },
+    {
+        "name": "Pike",
+        "season": "Summer",
+        "weather": "Any",
+        "location": "River/Lake",
+        "time": "Anytime",
+        "difficulty": "60 (Dart)"
+    },
+    {
+        "name": "Bream",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "River",
+        "time": "6pm - 2am",
+        "difficulty": "35 (Smooth)"
+    },
+    {
+        "name": "Chub",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "River/Lake",
+        "time": "Anytime",
+        "difficulty": "35 (Dart)"
+    },
+    {
+        "name": "Largemouth Bass",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "Mountain Lake",
+        "time": "6am - 7pm",
+        "difficulty": "50 (Mixed)"
+    },
+    {
+        "name": "Carp",
+        "season": "Spring",
+        "weather": "Any",
+        "location": "Mountain Lake",
+        "time": "Anytime",
+        "difficulty": "15 (Mixed)"
+    },
+    {
+        "name": "Bullhead",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "Mountain Lake",
+        "time": "Anytime",
+        "difficulty": "46 (Smooth)"
+    },
+    {
+        "name": "Sturgeon",
+        "season": "Summer",
+        "weather": "Any",
+        "location": "Mountain Lake",
+        "time": "6am - 7pm",
+        "difficulty": "78 (Mixed)"
+    },
+    {
+        "name": "Walleye",
+        "season": "Fall",
+        "weather": "Rain",
+        "location": "River/Lake",
+        "time": "12pm - 2am",
+        "difficulty": "45 (Smooth)"
+    },
+    {
+        "name": "Perch",
+        "season": "Winter",
+        "weather": "Any",
+        "location": "Mountain Lake",
+        "time": "Anytime",
+        "difficulty": "35 (Mixed)"
+    },
+    {
+        "name": "Sardine",
+        "season": "Spring",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 7pm",
+        "difficulty": "30 (Dart)"
+    },
+    {
+        "name": "Tuna",
+        "season": "Summer",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 7pm",
+        "difficulty": "70 (Smooth)"
+    },
+    {
+        "name": "Red Snapper",
+        "season": "Summer",
+        "weather": "Rain",
+        "location": "Ocean",
+        "time": "6am - 7pm",
+        "difficulty": "40 (Mixed)"
+    },
+    {
+        "name": "Tilapia",
+        "season": "Summer",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 2pm",
+        "difficulty": "50 (Mixed)"
+    },
+    {
+        "name": "Super Cucumber",
+        "season": "Summer",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6pm - 2am",
+        "difficulty": "80 (Sinker)"
+    },
+    {
+        "name": "Eel",
+        "season": "Spring",
+        "weather": "Rain",
+        "location": "Ocean",
+        "time": "4pm - 2am",
+        "difficulty": "70 (Smooth)"
+    },
+    {
+        "name": "Octopus",
+        "season": "Summer",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 1pm",
+        "difficulty": "95 (Sinker)"
+    },
+    {
+        "name": "Squid",
+        "season": "Winter",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6pm - 2am",
+        "difficulty": "75 (Sinker)"
+    },
+    {
+        "name": "Sea Cucumber",
+        "season": "Fall",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 7pm",
+        "difficulty": "40 (Sinker)"
+    },
+    {
+        "name": "Flounder",
+        "season": "Spring",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 8pm",
+        "difficulty": "50 (Sinker)"
+    },
+    {
+        "name": "Halibut",
+        "season": "Spring",
+        "weather": "Any",
+        "location": "Ocean",
+        "time": "6am - 11am",
+        "difficulty": "50 (Smooth)"
+    },
+    {
+        "name": "Pufferfish",
+        "season": "Summer",
+        "weather": "Sun",
+        "location": "Ocean",
+        "time": "12pm - 4pm",
+        "difficulty": "80 (Floater)"
+    },
+    {
+        "name": "Ghostfish",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "Mines",
+        "time": "Anytime",
+        "difficulty": "50 (Mixed)"
+    },
+    {
+        "name": "Sandfish",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "Desert",
+        "time": "6am - 8pm",
+        "difficulty": "65 (Mixed)"
+    },
+    {
+        "name": "Woodskip",
+        "season": "All Seasons",
+        "weather": "Any",
+        "location": "Secret Woods",
+        "time": "Anytime",
+        "difficulty": "50 (Mixed)"
+    }
+]

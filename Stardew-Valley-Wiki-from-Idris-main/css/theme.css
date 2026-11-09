@@ -1,0 +1,21 @@
+/* Shared paper, ink and botanical palette. System fonts only. */
+:root {
+ --bg: #F6F2E9; --paper: #FFFCF6; --sage: #B8C4AE; --green: #52664D;
+ --wood: #BE9D7B; --ink: #49463F; --border: #DCD5C8;
+ --muted: #686358; --sage-light: #E8EDE2; --wood-light: #F1E7DA; --wood-ink: #735438;
+ --shadow: 0 3px 12px rgb(73 70 63 / 4%);
+ --body-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+ --heading-font: "Kaiti SC", "STKaiti", "KaiTi", "楷体", Georgia, serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(--body-font); }
+h1,h2,h3 { font-family: var(--heading-font); color: var(--green); font-weight: 600; line-height: 1.35; }
+a { color: var(--green); }
+button { font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button, .back-home-link { min-height: 44px; transition: background-color .18s, border-color .18s, color .18s; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+::selection { background: var(--sage); color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

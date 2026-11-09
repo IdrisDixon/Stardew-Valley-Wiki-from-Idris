@@ -1,0 +1,236 @@
+{
+    "Alex": {
+        "name": "Alex",
+        "birthday": "Summer 13",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "1 River Road",
+            "Villagers",
+            "Pierre's General Store",
+            "Marriage",
+            "Spring",
+            "Fall"
+        ]
+    },
+    "Elliott": {
+        "name": "Elliott",
+        "birthday": "Fall 5",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "Elliott's Cabin",
+            "the Stardrop Saloon",
+            "Villagers",
+            "Pelican Town",
+            "marriage",
+            "Spring"
+        ]
+    },
+    "Sebastian": {
+        "name": "Sebastian",
+        "birthday": "Winter 10",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "Carpenter's Shop",
+            "Villagers",
+            "The Mountain",
+            "Pelican Town",
+            "marriage",
+            "Robin"
+        ]
+    },
+    "Abigail": {
+        "name": "Abigail",
+        "birthday": "Fall|13",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "Pierre's General Store",
+            "Villagers",
+            "Pelican Town",
+            "Marriage",
+            "Ginger Island",
+            "Festivals"
+        ]
+    },
+    "Emily": {
+        "name": "Emily",
+        "birthday": "Spring 27",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "2 Willow Lane",
+            "Emily",
+            "Villagers",
+            "Pelican Town",
+            "Marriage",
+            "Jodi"
+        ]
+    },
+    "Haley": {
+        "name": "Haley",
+        "birthday": "Spring 14",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "2 Willow Lane",
+            "Villagers",
+            "Pelican Town",
+            "marriage",
+            "Ginger Island",
+            "Festivals"
+        ]
+    },
+    "Leah": {
+        "name": "Leah",
+        "birthday": "Winter 23",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "Leah's Cottage",
+            "Villagers",
+            "Pelican Town",
+            "marriage",
+            "Spring",
+            "Summer"
+        ]
+    },
+    "Maru": {
+        "name": "Maru",
+        "birthday": "Summer 10",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "Carpenter's Shop",
+            "Villagers",
+            "The Mountain",
+            "Pelican Town",
+            "marriage",
+            "Harvey's Clinic"
+        ]
+    },
+    "Penny": {
+        "name": "Penny",
+        "birthday": "Fall 2",
+        "marriageable": "Yes",
+        "loved_gifts": [
+            "Trailer",
+            "Books",
+            "Villagers",
+            "Pelican Town",
+            "Marriage",
+            "trailer"
+        ]
+    },
+    "Caroline": {
+        "name": "Caroline",
+        "birthday": "Winter 7",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Pierre's General Store",
+            "Villagers",
+            "Pelican Town",
+            "Ginger Island",
+            "Festivals",
+            "Harvey's Clinic"
+        ]
+    },
+    "Clint": {
+        "name": "Clint",
+        "birthday": "Winter 26",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Blacksmith",
+            "Villagers",
+            "Pelican Town",
+            "Community Center",
+            "Ginger Island",
+            "The Desert"
+        ]
+    },
+    "Evelyn": {
+        "name": "Evelyn",
+        "birthday": "Winter 20",
+        "marriageable": "No",
+        "loved_gifts": [
+            "1 River Road",
+            "George",
+            "Villagers",
+            "Pelican Town",
+            "Harvey's Clinic",
+            "Ginger Island"
+        ]
+    },
+    "Jodi": {
+        "name": "Jodi",
+        "birthday": "Fall 11",
+        "marriageable": "No",
+        "loved_gifts": [
+            "1 Willow Lane",
+            "Vincent",
+            "Villagers",
+            "Pelican Town",
+            "Kent",
+            "Sam"
+        ]
+    },
+    "Lewis": {
+        "name": "Lewis",
+        "birthday": "Spring 7",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Mayor's Manor",
+            "Pelican Town",
+            "Robin",
+            "The Player",
+            "Marnie",
+            "Festivals"
+        ]
+    },
+    "Marnie": {
+        "name": "Marnie",
+        "birthday": "Fall 18",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Marnie's Ranch",
+            "Jas",
+            "Villagers",
+            "Cindersap Forest",
+            "Pelican Town",
+            "animals"
+        ]
+    },
+    "Pam": {
+        "name": "Pam",
+        "birthday": "Spring 18",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Trailer",
+            "Villagers",
+            "trailer",
+            "Pelican Town",
+            "Bus Stop",
+            "the Farm"
+        ]
+    },
+    "Willy": {
+        "name": "Willy",
+        "birthday": "Summer 24",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Fish Shop",
+            "Villagers",
+            "Setting",
+            "Pelican Town",
+            "The Beach",
+            "bait"
+        ]
+    },
+    "Wizard": {
+        "name": "Wizard",
+        "birthday": "Winter 17",
+        "marriageable": "No",
+        "loved_gifts": [
+            "Wizard's Tower",
+            "Villagers",
+            "Cindersap Forest",
+            "Festivals",
+            "Witch's Hut",
+            "Ginger Island"
+        ]
+    }
+}

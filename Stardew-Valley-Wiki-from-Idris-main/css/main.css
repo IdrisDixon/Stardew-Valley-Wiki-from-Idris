@@ -1,0 +1,22 @@
+@import url("theme.css");
+.lobby-wrapper { max-width: 1120px; min-height: 100svh; margin: auto; padding: 56px 40px 28px; }
+.main-header { padding: 0 0 28px; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+.library-title { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: 0; letter-spacing: .02em; }
+.game-showcase { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.game-card { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; color: var(--ink); text-decoration: none; box-shadow: var(--shadow); transition: border-color .2s, transform .2s; }
+.game-card:hover { border-color: var(--wood); transform: translateY(-2px); }
+.card-bg-img { aspect-ratio: 16 / 9; background-size: cover; background-position: center; border-bottom: 1px solid var(--border); }
+.card-overlay { display: none; }
+.card-content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 26px 28px 28px; }
+.platform-tag { font-size: .8rem; color: var(--green); background: var(--sage-light); border: 1px solid var(--border); border-radius: 4px; padding: 2px 9px; margin-bottom: 14px; }
+.game-title { font-size: 1.8rem; margin: 0 0 12px; }
+.game-desc { font-size: .94rem; color: var(--muted); margin: 0 0 24px; }
+.view-btn { margin-top: auto; min-height: 44px; display: inline-flex; align-items: center; padding: 8px 28px; background: var(--sage-light); color: var(--green); border: 1px solid var(--sage); border-radius: 6px; }
+.game-card:hover .view-btn { background: var(--sage); }
+.lobby-footer { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--border); font-size: .85rem; color: var(--muted); }
+.contact-title { margin-bottom: 12px; color: var(--green); font-family: var(--heading-font); font-size: 1.1rem; }
+.contact-container { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.contact-item { min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; color: var(--ink); overflow-wrap: anywhere; }
+.contact-item:hover { color: var(--green); text-decoration: underline; }
+.lobby-footer p { margin: 16px 0 0; }
+@media(max-width: 640px) { .lobby-wrapper { padding: 28px 20px; } .main-header { margin-bottom: 24px; } .game-showcase { grid-template-columns: 1fr; gap: 24px; } .card-content { padding: 22px; } .game-title { font-size: 1.65rem; } .lobby-footer { margin-top: 30px; } }
